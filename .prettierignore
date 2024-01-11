@@ -1,0 +1,16 @@
+# Artifacts:
+build
+coverage
+
+# Dotfile
+.env*
+
+# Markdown
+*.md
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
