@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className='flex h-screen flex-col items-center justify-center gap-5 p-6'>
+    <div className='flex h-screen flex-col items-center justify-center gap-5 bg-white p-6 dark:bg-black'>
       <div className='flex flex-row items-center gap-1'>
         <h2 className='rounded-md bg-cyan-900 px-1 py-0.5 text-xl font-semibold text-white'>
           Ark
