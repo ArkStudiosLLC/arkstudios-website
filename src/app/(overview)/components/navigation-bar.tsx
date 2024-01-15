@@ -38,10 +38,10 @@ export default function NavigationBar() {
   return (
     <nav className='fixed top-0 z-10 flex h-14 w-screen items-center justify-between px-10 backdrop-blur-md backdrop-filter dark:bg-black/10'>
       <Logo />
-      <div className='hidden md:block'>
+      <div className='hidden sm:block'>
         <Links />
       </div>
-      <div className='block md:hidden'>
+      <div className='block sm:hidden'>
         <Link href=''>
           <FontAwesomeIcon icon={faBars} className='h-5 w-5' />
         </Link>
