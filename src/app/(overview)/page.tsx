@@ -13,7 +13,7 @@ export default function Page() {
         今しばらくお待ちくださいませ。
       </p>
       <Link href='https://bitremote.app'>
-        <p className='rounded-xl bg-black px-4 py-2 font-medium text-white hover:bg-zinc-700 active:bg-zinc-500 dark:bg-white dark:text-black dark:hover:bg-zinc-200 dark:active:bg-zinc-400'>
+        <p className='rounded-xl bg-black px-4 py-2 font-medium text-white transition-colors hover:bg-zinc-700 active:bg-zinc-500 dark:bg-white dark:text-black dark:hover:bg-zinc-300 dark:active:bg-zinc-500'>
           弊社製品
         </p>
       </Link>

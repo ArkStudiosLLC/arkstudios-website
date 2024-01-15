@@ -24,7 +24,7 @@ function Links() {
       {links.map((link) => {
         return (
           <Link key={link.name} href={link.destination}>
-            <p className='font-light hover:font-semibold active:text-zinc-600 dark:active:text-zinc-400'>
+            <p className='font-light transition-colors hover:text-zinc-500 active:text-zinc-300 dark:text-white dark:hover:text-zinc-300 dark:active:text-zinc-500'>
               {link.name}
             </p>
           </Link>
