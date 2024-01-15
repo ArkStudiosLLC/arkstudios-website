@@ -1,3 +1,5 @@
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 
 function Logo() {
@@ -22,7 +24,7 @@ function Links() {
       {links.map((link) => {
         return (
           <Link key={link.name} href={link.destination}>
-            <p className='font-light hover:font-semibold hover:text-cyan-100'>
+            <p className='font-light hover:font-semibold active:text-zinc-600 dark:active:text-zinc-400'>
               {link.name}
             </p>
           </Link>
@@ -34,10 +36,15 @@ function Links() {
 
 export default function NavigationBar() {
   return (
-    <nav className='flex h-14 w-screen items-center justify-between bg-white/50 p-4 backdrop-blur-2xl backdrop-filter dark:bg-black/10'>
+    <nav className='fixed top-0 z-10 flex h-14 w-screen items-center justify-between px-10 backdrop-blur-md backdrop-filter dark:bg-black/10'>
       <Logo />
       <div className='hidden md:block'>
         <Links />
+      </div>
+      <div className='block md:hidden'>
+        <Link href=''>
+          <FontAwesomeIcon icon={faBars} className='h-5 w-5' />
+        </Link>
       </div>
     </nav>
   )
