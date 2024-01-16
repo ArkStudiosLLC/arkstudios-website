@@ -80,7 +80,7 @@ function BasicInfoSection() {
 function HistorySection() {
   return (
     <Section title='会社沿革'>
-      <table className='leading-loose'>
+      <table>
         <tbody>
           <TableYearRow value='2023年' />
           <TableMonthRow
@@ -117,7 +117,7 @@ function Subsection({ title, children }: { title: string; children: React.ReactN
 function TableYearRow({ value }: { value: string }) {
   return (
     <tr>
-      <td className='text-2xl font-semibold'>{value}</td>
+      <td className='whitespace-nowrap text-nowrap text-2xl font-semibold'>{value}</td>
       <td></td>
     </tr>
   )
@@ -125,9 +125,9 @@ function TableYearRow({ value }: { value: string }) {
 
 function TableMonthRow({ value, content }: { value: string; content: string }) {
   return (
-    <tr>
-      <td className='text-lg font-medium'>{value}</td>
-      <td>
+    <tr className='align-baseline'>
+      <td className='whitespace-nowrap text-nowrap font-medium'>{value}</td>
+      <td className='h-8'>
         <Label>{content}</Label>
       </td>
     </tr>
@@ -138,7 +138,7 @@ function TablePlainRow({ content }: { content: string }) {
   return (
     <tr>
       <td></td>
-      <td>
+      <td className='h-10'>
         <Label>{content}</Label>
       </td>
     </tr>
