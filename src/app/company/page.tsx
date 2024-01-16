@@ -28,13 +28,15 @@ function BasicInfoSection() {
       </Subsection>
 
       <Subsection title='所在地'>
-        <Label>
-          〒131-0043
-          <br />
-          東京都墨田区立花 2 丁目 25 番 8 号松美荘 16 号室
-          <br />
-          2-25-8-16 Tachibana, Sumida, Tokyo
-        </Label>
+        <address className='not-italic'>
+          <Label>
+            〒131-0043
+            <br />
+            東京都墨田区立花 2 丁目 25 番 8 号松美荘 16 号室
+            <br />
+            2-25-8-16 Tachibana, Sumida, Tokyo
+          </Label>
+        </address>
       </Subsection>
 
       <Subsection title='設立日'>
@@ -50,18 +52,25 @@ function BasicInfoSection() {
       </Subsection>
 
       <Subsection title='業務内容'>
-        <Label>
-          各種ソフトウェアおよびハードウェアの企画、研究、開発、設計、製造、販売、保守、リース、賃貸及び輸出入
-          <br />
-          各種ウェブサイトの企画、制作、販売、配信、運営及び管理に関する業務
-        </Label>
+        <ul>
+          <li>
+            <Label>
+              各種ソフトウェアおよびハードウェアの企画、研究、開発、設計、製造、販売、保守、リース、賃貸及び輸出入
+            </Label>
+          </li>
+          <li>
+            <Label>
+              各種ウェブサイトの企画、制作、販売、配信、運営及び管理に関する業務
+            </Label>
+          </li>
+        </ul>
       </Subsection>
 
       <Subsection title='役員構成'>
         <Label>
-          代表社員：曾 令強
+          代表社員：曾令強
           <br />
-          業務執行社員：曾 令強、荒木 辰造
+          業務執行社員：曾令強、荒木辰造
         </Label>
       </Subsection>
     </Section>
@@ -70,28 +79,69 @@ function BasicInfoSection() {
 
 function HistorySection() {
   return (
-    <p className='hidden'></p>
-    // <Section title='会社沿革'>
-    //   <p>123</p>
-    // </Section>
+    <Section title='会社沿革'>
+      <table className='leading-loose'>
+        <tbody>
+          <TableYearRow value='2023年' />
+          <TableMonthRow
+            value='11月'
+            content='ダウンロードタスク遠隔操作アプリ「BitRemote」を提供'
+          />
+          <TablePlainRow content='荒木辰造が最高技術責任者に就任' />
+          <TablePlainRow content='曾令強が最高経営責任者に就任' />
+          <TablePlainRow content='東京都墨田区にソフトウェア開発会社として会社設立' />
+        </tbody>
+      </table>
+    </Section>
   )
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className='flex flex-col gap-10'>
-      <p className='text-4xl font-bold'>{title}</p>
+    <section className='flex flex-col gap-10'>
+      <h1 className='text-4xl font-bold'>{title}</h1>
       {children}
-    </div>
+    </section>
   )
 }
 
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className='flex flex-col gap-1'>
-      <p className='text-2xl font-semibold'>{title}</p>
+      <h2 className='text-2xl font-semibold'>{title}</h2>
       {children}
     </div>
+  )
+}
+
+function TableYearRow({ value }: { value: string }) {
+  return (
+    <tr>
+      <td className='text-2xl font-semibold'>{value}</td>
+      <td></td>
+    </tr>
+  )
+}
+
+function TableMonthRow({ value, content }: { value: string; content: string }) {
+  return (
+    <tr>
+      <td className='text-lg font-medium'>{value}</td>
+      <td>
+        <Label>{content}</Label>
+      </td>
+    </tr>
+  )
+}
+
+function TablePlainRow({ content }: { content: string }) {
+  return (
+    <tr>
+      <td></td>
+      <td>
+        <Label>{content}</Label>
+      </td>
+    </tr>
   )
 }
 
@@ -105,6 +155,7 @@ export default function Page() {
       <NavigationBar />
       <div className='mt-14 flex flex-col gap-20 p-14 md:px-40 md:py-20 lg:px-60 xl:px-72 2xl:px-96'>
         <BasicInfoSection />
+        <hr />
         <HistorySection />
       </div>
     </div>
