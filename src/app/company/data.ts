@@ -16,15 +16,6 @@ export const summaryInfos: SummaryInfo[] = [
     contents: ['Ａｒｋ　Ｓｔｕｄｉｏｓ合同会社', 'ARK STUDIOS LIMITED LIABILITY COMPANY'],
   },
   {
-    type: 'address',
-    title: '所在地',
-    contents: [
-      '〒131-0043',
-      '東京都墨田区立花 2 丁目 25 番 8 号松美荘 16 号室',
-      '2-25-8-16 Tachibana, Sumida, Tokyo',
-    ],
-  },
-  {
     type: 'plain',
     title: '設立日',
     contents: ['2023年11月27日'],
@@ -56,6 +47,15 @@ export const summaryInfos: SummaryInfo[] = [
       '小売業',
       '前各号に関するコンサルティング',
       '前各号の営業に附帯する一切の事業',
+    ],
+  },
+  {
+    type: 'address',
+    title: '所在地',
+    contents: [
+      '〒131-0043',
+      '東京都墨田区立花 2 丁目 25 番 8 号松美荘 16 号室',
+      '2-25-8-16 Tachibana, Sumida, Tokyo',
     ],
   },
 ]
