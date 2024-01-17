@@ -76,7 +76,7 @@ function HistorySection() {
                 return (
                   <tr key={key}>
                     <td className='whitespace-nowrap text-nowrap text-2xl font-semibold'>
-                      {historyInfo.content}
+                      {historyInfo.time}
                     </td>
                     <td></td>
                   </tr>
