@@ -2,77 +2,54 @@
 import { Metadata } from 'next'
 import React from 'react'
 
-import NavigationBar from '../(overview)/components/navigation-bar'
+import { summaryInfos, historyInfos } from './data'
+import NavigationBar from '../ui/components/navigation-bar'
 
 export const metadata: Metadata = {
   title: '会社情報',
 }
 
-function BasicInfoSection() {
+function SummarySection() {
   return (
     <Section title='会社概要'>
-      <Subsection title='会社名称'>
-        <Label>
-          Ark Studios 合同会社
-          <br />
-          Ark Studios LLC
-        </Label>
-      </Subsection>
+      {summaryInfos.map((summaryInfo) => {
+        switch (summaryInfo.type) {
+          case 'plain':
+            return (
+              <Subsection title={summaryInfo.title}>
+                {summaryInfo.contents.map((content) => {
+                  return <Label key={content}>{content}</Label>
+                })}
+              </Subsection>
+            )
 
-      <Subsection title='正式名称'>
-        <Label>
-          Ａｒｋ　Ｓｔｕｄｉｏｓ合同会社
-          <br />
-          ARK STUDIOS LIMITED LIABILITY COMPANY
-        </Label>
-      </Subsection>
+          case 'address':
+            return (
+              <Subsection title={summaryInfo.title}>
+                <address className='not-italic'>
+                  {summaryInfo.contents.map((content) => {
+                    return <Label key={content}>{content}</Label>
+                  })}
+                </address>
+              </Subsection>
+            )
 
-      <Subsection title='所在地'>
-        <address className='not-italic'>
-          <Label>
-            〒131-0043
-            <br />
-            東京都墨田区立花 2 丁目 25 番 8 号松美荘 16 号室
-            <br />
-            2-25-8-16 Tachibana, Sumida, Tokyo
-          </Label>
-        </address>
-      </Subsection>
-
-      <Subsection title='設立日'>
-        <Label>2023年11月27日</Label>
-      </Subsection>
-
-      <Subsection title='資本金'>
-        <Label>5,000,000円</Label>
-      </Subsection>
-
-      <Subsection title='決算時期'>
-        <Label>10月</Label>
-      </Subsection>
-
-      <Subsection title='業務内容'>
-        <ul>
-          <li>
-            <Label>
-              各種ソフトウェアおよびハードウェアの企画、研究、開発、設計、製造、販売、保守、リース、賃貸及び輸出入
-            </Label>
-          </li>
-          <li>
-            <Label>
-              各種ウェブサイトの企画、制作、販売、配信、運営及び管理に関する業務
-            </Label>
-          </li>
-        </ul>
-      </Subsection>
-
-      <Subsection title='役員構成'>
-        <Label>
-          代表社員：曾令強
-          <br />
-          業務執行社員：曾令強、荒木辰造
-        </Label>
-      </Subsection>
+          case 'industry':
+            return (
+              <Subsection title={summaryInfo.title}>
+                <ul className='ml-5 list-disc'>
+                  {summaryInfo.contents.map((content) => {
+                    return (
+                      <li key={content}>
+                        <Label>{content}</Label>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </Subsection>
+            )
+        }
+      })}
     </Section>
   )
 }
@@ -82,14 +59,42 @@ function HistorySection() {
     <Section title='会社沿革'>
       <table>
         <tbody>
-          <TableYearRow value='2023年' />
-          <TableMonthRow
-            value='11月'
-            content='ダウンロードタスク遠隔操作アプリ「BitRemote」を提供'
-          />
-          <TablePlainRow content='荒木辰造が最高技術責任者に就任' />
-          <TablePlainRow content='曾令強が最高経営責任者に就任' />
-          <TablePlainRow content='東京都墨田区にソフトウェア開発会社として会社設立' />
+          {historyInfos.map((historyInfo) => {
+            const key = historyInfo.type + historyInfo.time + historyInfo.content
+            switch (historyInfo.type) {
+              case 'year':
+                return (
+                  <tr key={key}>
+                    <td className='whitespace-nowrap text-nowrap text-2xl font-semibold'>
+                      {historyInfo.content}
+                    </td>
+                    <td></td>
+                  </tr>
+                )
+
+              case 'month':
+                return (
+                  <tr key={key} className='align-baseline'>
+                    <td className='whitespace-nowrap text-nowrap font-medium'>
+                      {historyInfo.time}
+                    </td>
+                    <td className='h-8'>
+                      <Label>{historyInfo.content}</Label>
+                    </td>
+                  </tr>
+                )
+
+              case 'plain':
+                return (
+                  <tr key={key}>
+                    <td></td>
+                    <td className='h-10'>
+                      <Label>{historyInfo.content}</Label>
+                    </td>
+                  </tr>
+                )
+            }
+          })}
         </tbody>
       </table>
     </Section>
@@ -114,37 +119,6 @@ function Subsection({ title, children }: { title: string; children: React.ReactN
   )
 }
 
-function TableYearRow({ value }: { value: string }) {
-  return (
-    <tr>
-      <td className='whitespace-nowrap text-nowrap text-2xl font-semibold'>{value}</td>
-      <td></td>
-    </tr>
-  )
-}
-
-function TableMonthRow({ value, content }: { value: string; content: string }) {
-  return (
-    <tr className='align-baseline'>
-      <td className='whitespace-nowrap text-nowrap font-medium'>{value}</td>
-      <td className='h-8'>
-        <Label>{content}</Label>
-      </td>
-    </tr>
-  )
-}
-
-function TablePlainRow({ content }: { content: string }) {
-  return (
-    <tr>
-      <td></td>
-      <td className='h-10'>
-        <Label>{content}</Label>
-      </td>
-    </tr>
-  )
-}
-
 function Label({ children }: { children: React.ReactNode }) {
   return <p className='font-light text-zinc-700 dark:text-zinc-300'>{children}</p>
 }
@@ -153,10 +127,12 @@ export default function Page() {
   return (
     <div>
       <NavigationBar />
-      <div className='mt-14 flex flex-col gap-20 p-14 md:px-40 md:py-20 lg:px-60 xl:px-72 2xl:px-96'>
-        <BasicInfoSection />
-        <hr />
-        <HistorySection />
+      <div className='mt-14 flex w-screen flex-col items-center'>
+        <div className='flex w-5/6 flex-col items-center justify-center gap-20 py-14 *:w-full sm:w-4/5 md:w-3/4 md:py-20 lg:w-2/3 xl:w-1/2 2xl:w-[64rem]'>
+          <SummarySection />
+          <hr />
+          <HistorySection />
+        </div>
       </div>
     </div>
   )

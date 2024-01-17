@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import NavigationBar from './components/navigation-bar'
+import NavigationBar from '../ui/components/navigation-bar'
 
 export default function Page() {
   return (
