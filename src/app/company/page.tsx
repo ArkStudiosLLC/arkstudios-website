@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import React from 'react'
 
 import { summaryInfos, historyInfos } from './data'
+import Footer from '../ui/components/footer'
 import NavigationBar from '../ui/components/navigation-bar'
 
 export const metadata: Metadata = {
@@ -128,12 +129,13 @@ export default function Page() {
     <div>
       <NavigationBar />
       <div className='mt-14 flex w-screen flex-col items-center'>
-        <div className='flex w-5/6 flex-col items-center justify-center gap-20 py-14 *:w-full sm:w-4/5 md:w-3/4 md:py-20 lg:w-2/3 xl:w-1/2 2xl:w-[64rem]'>
+        <div className='w-limited flex flex-col items-center justify-center gap-20 pb-32 pt-14 *:w-full md:pt-20'>
           <SummarySection />
           <hr />
           <HistorySection />
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

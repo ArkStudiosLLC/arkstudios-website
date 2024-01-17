@@ -36,15 +36,17 @@ function Links() {
 
 export default function NavigationBar() {
   return (
-    <nav className='fixed top-0 z-10 flex h-14 w-screen items-center justify-between px-10 backdrop-blur-md backdrop-filter dark:bg-black/10'>
-      <Logo />
-      <div className='hidden sm:block'>
-        <Links />
-      </div>
-      <div className='block sm:hidden'>
-        <Link href=''>
-          <FontAwesomeIcon icon={faBars} className='h-5 w-5' />
-        </Link>
+    <nav className='fixed top-0 z-10 flex w-screen justify-center backdrop-blur-md backdrop-filter dark:bg-black/10'>
+      <div className='w-limited flex items-center justify-between py-3'>
+        <Logo />
+        <div className='hidden sm:block'>
+          <Links />
+        </div>
+        <div className='block sm:hidden'>
+          <Link href=''>
+            <FontAwesomeIcon icon={faBars} className='h-5 w-5' />
+          </Link>
+        </div>
       </div>
     </nav>
   )

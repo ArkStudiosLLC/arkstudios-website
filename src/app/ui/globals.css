@@ -22,3 +22,9 @@ body {
   color: rgb(var(--foreground-rgb));
   background-color: var(--background-color);
 }
+
+@layer components {
+  .w-limited {
+    @apply w-5/6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-[64rem];
+  }
+}
