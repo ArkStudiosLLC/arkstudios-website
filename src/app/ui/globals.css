@@ -23,6 +23,16 @@ body {
   background-color: var(--background-color);
 }
 
+@layer utilities {
+  .hidden-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @layer components {
   .w-limited {
     @apply w-5/6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-[64rem];

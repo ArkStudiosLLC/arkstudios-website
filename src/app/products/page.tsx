@@ -53,7 +53,7 @@ function AppCards() {
     return (
       <div className='flex flex-col gap-1'>
         <SubsectionHeader title='動作環境' />
-        <div className='flex gap-2 divide-x divide-zinc-300 overflow-x-scroll py-2 dark:divide-cyan-800 [&>*:not(:first-child)]:pl-2'>
+        <div className='hidden-scrollbar flex gap-2 divide-x divide-zinc-300 overflow-x-auto py-2 dark:divide-cyan-800 [&>*:not(:first-child)]:pl-2'>
           {appInfo.platformInfos.map((platformInfo) => {
             return (
               <div
