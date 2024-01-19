@@ -2,7 +2,6 @@ import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope as faEnvelopeRegular } from '@fortawesome/free-regular-svg-icons'
 import { faEnvelope as faEnvelopeSolid } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -10,12 +9,12 @@ export default function Footer() {
       <div className='w-limited flex items-center justify-between gap-3 py-3 *:text-sm *:text-zinc-800 *:dark:text-zinc-300'>
         <p>© 2024 Ark Studios LLC.</p>
         <div className='flex items-center justify-between gap-5 *:h-6 *:w-6 lg:gap-3 *:lg:h-5 *:lg:w-5'>
-          <Link href='https://twitter.com/ArkStudiosLLC'>
+          <a href='https://twitter.com/ArkStudiosLLC'>
             <FontAwesomeIcon icon={faTwitter} />
-          </Link>
-          <Link href='https://github.com/ArkStudiosLLC'>
+          </a>
+          <a href='https://github.com/ArkStudiosLLC'>
             <FontAwesomeIcon icon={faGithub} />
-          </Link>
+          </a>
           <a href='mailto:info@arkstudios.co.jp' className='block lg:hidden'>
             <FontAwesomeIcon icon={faEnvelopeSolid} />
           </a>

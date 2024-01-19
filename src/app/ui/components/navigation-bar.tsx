@@ -1,15 +1,14 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
 
 function Logo() {
   return (
-    <Link href='/'>
+    <a href='/'>
       <p className='flex items-baseline gap-1 text-xl font-semibold'>
         <span className='rounded-md bg-cyan-800 px-1 py-0.5 text-white'>Ark</span>
         Studios
       </p>
-    </Link>
+    </a>
   )
 }
 
@@ -23,11 +22,11 @@ function Links() {
     <div className='flex gap-4'>
       {links.map((link) => {
         return (
-          <Link key={link.name} href={link.destination}>
+          <a key={link.name} href={link.destination}>
             <p className='font-light transition-colors hover:text-zinc-500 active:text-zinc-300 dark:text-white dark:hover:text-zinc-300 dark:active:text-zinc-500'>
               {link.name}
             </p>
-          </Link>
+          </a>
         )
       })}
     </div>
@@ -43,9 +42,9 @@ export default function NavigationBar() {
           <Links />
         </div>
         <div className='block sm:hidden'>
-          <Link href=''>
+          <a href=''>
             <FontAwesomeIcon icon={faBars} className='h-5 w-5' />
-          </Link>
+          </a>
         </div>
       </div>
     </nav>

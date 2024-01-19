@@ -14,7 +14,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 import { AppInfo, appInfos, PriceInfo, PlatformInfo } from './data'
@@ -42,11 +41,11 @@ function AppCards() {
             <p className='text-xs font-light sm:text-base'>{appInfo.subtitle}</p>
           </div>
           <div className='flex w-full justify-start'>
-            <Link href={appInfo.websiteLink}>
+            <a href={appInfo.websiteLink}>
               <p className='rounded-xl bg-zinc-700 px-3 py-1.5 text-xs font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-sm dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'>
                 公式サイト
               </p>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
