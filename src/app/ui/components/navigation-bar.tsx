@@ -36,7 +36,7 @@ function Links() {
 
 export default function NavigationBar() {
   return (
-    <nav className='fixed top-0 z-10 flex w-full justify-center backdrop-blur-md backdrop-filter dark:bg-black/10'>
+    <nav className='fixed top-0 z-10 flex w-full justify-center backdrop-blur-3xl dark:bg-black/10'>
       <div className='w-limited flex items-center justify-between py-3'>
         <Logo />
         <div className='hidden sm:block'>

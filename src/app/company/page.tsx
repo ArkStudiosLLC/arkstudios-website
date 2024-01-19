@@ -1,4 +1,3 @@
-/* eslint-disable no-irregular-whitespace */
 import { Metadata } from 'next'
 import React from 'react'
 
@@ -14,10 +13,11 @@ function SummarySection() {
   return (
     <Section title='会社概要'>
       {summaryInfos.map((summaryInfo) => {
+        const key = summaryInfo.type + summaryInfo.title + summaryInfo.contents.length
         switch (summaryInfo.type) {
           case 'plain':
             return (
-              <Subsection title={summaryInfo.title}>
+              <Subsection key={key} title={summaryInfo.title}>
                 {summaryInfo.contents.map((content) => {
                   return <Label key={content}>{content}</Label>
                 })}
@@ -26,7 +26,7 @@ function SummarySection() {
 
           case 'address':
             return (
-              <Subsection title={summaryInfo.title}>
+              <Subsection key={key} title={summaryInfo.title}>
                 <address className='not-italic'>
                   {summaryInfo.contents.map((content) => {
                     return <Label key={content}>{content}</Label>
@@ -46,7 +46,7 @@ function SummarySection() {
 
           case 'industry':
             return (
-              <Subsection title={summaryInfo.title}>
+              <Subsection key={key} title={summaryInfo.title}>
                 <ul className='ml-5 list-disc'>
                   {summaryInfo.contents.map((content) => {
                     return (

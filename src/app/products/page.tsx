@@ -37,7 +37,7 @@ function AppCards() {
           />
         </div>
         <div className='flex w-full flex-col items-start justify-between gap-2 sm:gap-6'>
-          <div>
+          <div className='select-text'>
             <p className='text-lg font-bold sm:text-2xl'>{appInfo.title}</p>
             <p className='text-xs font-light sm:text-base'>{appInfo.subtitle}</p>
           </div>
@@ -57,7 +57,7 @@ function AppCards() {
     return (
       <div className='flex flex-col gap-3'>
         <SubsectionHeader title='概要' />
-        <p className='whitespace-pre-line text-xs font-light text-zinc-700 sm:text-sm dark:text-zinc-200'>
+        <p className='select-text whitespace-pre-line text-xs font-light text-zinc-700 sm:text-sm dark:text-zinc-200'>
           {content}
         </p>
       </div>
@@ -72,7 +72,7 @@ function AppCards() {
           {infos.map((info) => {
             return (
               <IconCell
-                key={info.type}
+                key={info.type + info.value}
                 icon={<PriceIcon info={info} />}
                 title={(function () {
                   switch (info.type) {
@@ -217,7 +217,7 @@ export default function Page() {
   return (
     <div className='flex h-screen flex-col justify-between'>
       <NavigationBar />
-      <div className='mt-14 flex justify-center'>
+      <div className='mt-14 flex select-none justify-center'>
         <div className='w-limited pb-32 pt-14 md:pt-20'>
           <h1 className='text-4xl font-bold'>製品一覧</h1>
           <AppCards />

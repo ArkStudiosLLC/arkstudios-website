@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 interface SummaryInfo {
   type: 'plain' | 'address' | 'industry'
   title: string
