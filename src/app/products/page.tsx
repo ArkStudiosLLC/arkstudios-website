@@ -28,14 +28,14 @@ function AppCards() {
         <div className='aspect-square shrink-0'>
           <Image
             src={appInfo.icon}
-            alt={appInfo.name}
+            alt={appInfo.title}
             className='aspect-square w-24 sm:w-32'
           />
         </div>
         <div className='flex w-full flex-col items-start justify-between gap-2 sm:gap-6'>
           <div>
-            <p className='text-lg font-bold sm:text-2xl'>{appInfo.name}</p>
-            <p className='text-xs font-light sm:text-base'>{appInfo.description}</p>
+            <p className='text-lg font-bold sm:text-2xl'>{appInfo.title}</p>
+            <p className='text-xs font-light sm:text-base'>{appInfo.subtitle}</p>
           </div>
           <div className='flex w-full justify-start'>
             <Link href={appInfo.websiteLink}>
@@ -49,11 +49,22 @@ function AppCards() {
     )
   }
 
+  function DescriptionSection({ content }: { content: string }) {
+    return (
+      <div className='flex flex-col gap-3'>
+        <SubsectionHeader title='概要' />
+        <p className='whitespace-pre-line text-xs font-light text-zinc-700 sm:text-sm dark:text-zinc-200'>
+          {content}
+        </p>
+      </div>
+    )
+  }
+
   function PlatformSection({ appInfo }: { appInfo: AppInfo }) {
     return (
-      <div className='flex flex-col gap-1'>
+      <div className='flex flex-col gap-3'>
         <SubsectionHeader title='動作環境' />
-        <div className='hidden-scrollbar flex gap-2 divide-x divide-zinc-300 overflow-x-auto py-2 dark:divide-cyan-800 [&>*:not(:first-child)]:pl-2'>
+        <div className='hidden-scrollbar flex gap-2 divide-x divide-zinc-300 overflow-x-auto dark:divide-cyan-800 [&>*:not(:first-child)]:pl-2'>
           {appInfo.platformInfos.map((platformInfo) => {
             return (
               <div
@@ -78,10 +89,11 @@ function AppCards() {
       {appInfos.map((appInfo) => {
         return (
           <div
-            key={appInfo.name}
+            key={appInfo.title}
             className='flex w-full flex-col gap-6 divide-y-2 divide-dashed divide-zinc-300 rounded-3xl bg-zinc-100 p-6 transition-shadow sm:p-8 lg:p-10 lg:hover:shadow-xl dark:divide-cyan-800 dark:bg-cyan-950 lg:dark:hover:shadow-2xl [&>*:not(:first-child)]:pt-6'
           >
             <SummarySection appInfo={appInfo} />
+            <DescriptionSection content={appInfo.description} />
             <PlatformSection appInfo={appInfo} />
           </div>
         )

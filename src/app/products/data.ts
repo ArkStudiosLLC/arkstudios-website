@@ -9,7 +9,8 @@ export interface PlatformInfo {
 }
 
 export interface AppInfo {
-  name: string
+  title: string
+  subtitle: string
   description: string
   websiteLink: string
   icon: StaticImageData
@@ -19,8 +20,24 @@ export interface AppInfo {
 
 export const appInfos: AppInfo[] = [
   {
-    name: 'BitRemote',
-    description: 'ダウンロードタスク遠隔操作アプリ',
+    title: 'BitRemote',
+    subtitle: 'ダウンロードタスク遠隔管理アプリ',
+    description: `BitRemote は、Apple プラットフォームに最適化され、ダウンロードタスクを効率的かつ簡単に管理するツールです。安全性を重視し、クライアント※のログイン情報は弊社サーバーではなく、デバイス内部や iCloud に安全に保管。大切なデータは、いつでもどこでも、お客様だけの手の中に。
+
+    最先端のネイティブフレームワークにより、BitRemote は OS 上で直接動作し、ローカルファイルへの素早いアクセス※※や、バックグラウンドでの安定した動作を実現。加えて、Apple 独自のフレームワークを駆使した特別な機能を提供します。
+
+    広範囲にわたるクライアントのサポートで、BitRemote は以下のクライアントに対応：
+    ・aria2
+    ・qBittorrent
+    ・Transmission
+    ・QNAP Download Station
+    ・Synology Download Station
+
+    お客様のニーズに合わせて、GitHub でのリクエストに基づき、継続的に新しいクライアントへの対応を拡大していきます。BitRemote で、ダウンロードタスク管理をもっとスマートに、もっと安全に。
+
+    ※ クライアントとは、ダウンロードツールのことを指します。
+    ※※ ローカルでダウンロードを行うのではなく、クライアントを遠隔操作するツールです。
+    `,
     websiteLink: 'https://bitremote.app',
     icon: bitRemoteIcon,
     screenshots: [],
