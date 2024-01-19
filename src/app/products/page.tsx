@@ -1,4 +1,7 @@
 import {
+  faCalendarDays,
+  faCalendarCheck,
+  faInfinity,
   faCircleCheck,
   faCircleXmark,
   faMobile,
@@ -12,8 +15,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import React from 'react'
 
-import { AppInfo, PlatformInfo, appInfos } from './data'
+import { AppInfo, appInfos, PriceInfo, PlatformInfo } from './data'
 import Footer from '../ui/components/footer'
 import NavigationBar from '../ui/components/navigation-bar'
 
@@ -60,26 +64,51 @@ function AppCards() {
     )
   }
 
-  function PlatformSection({ appInfo }: { appInfo: AppInfo }) {
+  function PriceSection({ infos }: { infos: PriceInfo[] }) {
+    return (
+      <div className='flex flex-col gap-3'>
+        <SubsectionHeader title='価格' />
+        <HorizontalScrollSection>
+          {infos.map((info) => {
+            return (
+              <IconCell
+                key={info.type}
+                icon={<PriceIcon info={info} />}
+                title={(function () {
+                  switch (info.type) {
+                    case 'month':
+                      return '月額'
+                    case 'year':
+                      return '年額'
+                    case 'lifetime':
+                      return '永続'
+                  }
+                })()}
+                subtitle={info.value}
+              />
+            )
+          })}
+        </HorizontalScrollSection>
+      </div>
+    )
+  }
+
+  function PlatformSection({ infos }: { infos: PlatformInfo[] }) {
     return (
       <div className='flex flex-col gap-3'>
         <SubsectionHeader title='動作環境' />
-        <div className='hidden-scrollbar flex gap-2 divide-x divide-zinc-300 overflow-x-auto dark:divide-cyan-800 [&>*:not(:first-child)]:pl-2'>
-          {appInfo.platformInfos.map((platformInfo) => {
+        <HorizontalScrollSection>
+          {infos.map((info) => {
             return (
-              <div
-                key={platformInfo.name}
-                className='flex w-full min-w-20 flex-col items-center gap-1'
-              >
-                <PlatformIcon info={platformInfo} />
-                <p className='text-sm sm:text-base'>{platformInfo.name}</p>
-                <p className='text-xs text-zinc-500 dark:text-zinc-300'>
-                  {platformInfo.versionDescription || 'N/A'}
-                </p>
-              </div>
+              <IconCell
+                key={info.name}
+                icon={<PlatformIcon info={info} />}
+                title={info.name}
+                subtitle={info.versionDescription || 'N/A'}
+              />
             )
           })}
-        </div>
+        </HorizontalScrollSection>
       </div>
     )
   }
@@ -94,11 +123,56 @@ function AppCards() {
           >
             <SummarySection appInfo={appInfo} />
             <DescriptionSection content={appInfo.description} />
-            <PlatformSection appInfo={appInfo} />
+            <PriceSection infos={appInfo.priceInfos} />
+            <PlatformSection infos={appInfo.platformInfos} />
           </div>
         )
       })}
     </div>
+  )
+}
+
+function HorizontalScrollSection({ children }: { children: React.ReactNode }) {
+  return (
+    <div className='hidden-scrollbar flex gap-2 divide-x divide-zinc-300 overflow-x-auto dark:divide-cyan-800 [&>*:not(:first-child)]:pl-2'>
+      {children}
+    </div>
+  )
+}
+
+function IconCell({
+  icon,
+  title,
+  subtitle,
+}: {
+  icon: React.ReactNode
+  title: string
+  subtitle: string
+}) {
+  return (
+    <div className='flex w-full min-w-20 flex-col items-center gap-2'>
+      {icon}
+      <p className='text-sm sm:text-base'>{title}</p>
+      <p className='text-xs text-zinc-500 dark:text-zinc-300'>{subtitle}</p>
+    </div>
+  )
+}
+
+function PriceIcon({ info }: { info: PriceInfo }) {
+  return (
+    <FontAwesomeIcon
+      className='h-7 w-7'
+      icon={(function () {
+        switch (info.type) {
+          case 'month':
+            return faCalendarDays
+          case 'year':
+            return faCalendarCheck
+          case 'lifetime':
+            return faInfinity
+        }
+      })()}
+    />
   )
 }
 
