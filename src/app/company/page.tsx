@@ -39,23 +39,8 @@ function SummarySection() {
                     loading='lazy'
                     referrerPolicy='no-referrer-when-downgrade'
                     className='size-full rounded-md'
-                  ></iframe>
+                  />
                 </div>
-              </Subsection>
-            )
-
-          case 'industry':
-            return (
-              <Subsection key={key} title={summaryInfo.title}>
-                <ul className='ml-5 list-disc'>
-                  {summaryInfo.contents.map((content) => {
-                    return (
-                      <li key={content}>
-                        <Label>{content}</Label>
-                      </li>
-                    )
-                  })}
-                </ul>
               </Subsection>
             )
         }

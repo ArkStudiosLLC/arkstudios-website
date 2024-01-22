@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: '%s | Ark Studios',
     default: 'Ark Studios',
   },
-  description: '未来への方舟、選び抜かれたソリューション。',
+  description: '選び抜かれたソリューション、未来への方舟。',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

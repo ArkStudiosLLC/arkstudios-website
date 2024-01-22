@@ -1,6 +1,6 @@
 /* eslint-disable no-irregular-whitespace */
 interface SummaryInfo {
-  type: 'plain' | 'address' | 'industry'
+  type: 'plain' | 'address'
   title: string
   contents: string[]
 }
@@ -37,17 +37,11 @@ export const summaryInfos: SummaryInfo[] = [
     contents: ['代表社員：曾令強', '業務執行社員：曾令強、荒木辰造'],
   },
   {
-    type: 'industry',
+    type: 'plain',
     title: '事業内容',
     contents: [
-      '各種ソフトウェアおよびハードウェアの企画、研究、開発、設計、製造、販売、保守、リース、賃貸及び輸出入',
-      '各種ウェブサイトの企画、制作、販売、配信、運営及び管理に関する業務',
-      '国際貿易業',
-      '翻訳・通訳業',
-      '国内外の株式、ファンドへの投融資',
-      '小売業',
-      '前各号に関するコンサルティング',
-      '前各号の営業に附帯する一切の事業',
+      '各種アプリの企画、開発、設計、製造及び販売',
+      '※ スマホ、パソコン、XR ヘッドセット、スマートウォッチ、セットトップボックス等',
     ],
   },
   {
