@@ -13,7 +13,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Metadata } from 'next'
-import Image from 'next/image'
 import React from 'react'
 
 import { AppInfo, appInfos, PriceInfo, PlatformInfo } from './data'
@@ -29,11 +28,16 @@ function AppCards() {
     return (
       <div className='flex gap-4 sm:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12'>
         <div className='aspect-square shrink-0'>
-          <Image
-            src={appInfo.icon}
-            alt={appInfo.title}
-            className='aspect-square w-24 sm:w-32'
-          />
+          <picture>
+            <source srcSet={appInfo.iconSource} type='image/webp'></source>
+            <img
+              src={appInfo.iconFallbackSource}
+              alt={appInfo.title}
+              loading='lazy'
+              decoding='async'
+              className='aspect-square w-24 sm:w-32'
+            />
+          </picture>
         </div>
         <div className='flex w-full flex-col items-start justify-between gap-2 sm:gap-6'>
           <div className='select-text'>
@@ -214,7 +218,7 @@ function SubsectionHeader({ title }: { title: string }) {
 
 export default function Page() {
   return (
-    <div className='flex h-screen flex-col justify-between'>
+    <div className='flex flex-col'>
       <NavigationBar />
       <div className='mt-14 flex select-none justify-center'>
         <div className='w-limited pb-32 pt-14 md:pt-20'>
