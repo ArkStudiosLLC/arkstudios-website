@@ -1,9 +1,16 @@
 import './ui/globals.css'
 import { Inter } from 'next/font/google'
 
-import type { Metadata } from 'next'
+import type { Viewport, Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: '#06232e' },
+  ],
+}
 
 export const metadata: Metadata = {
   title: {
