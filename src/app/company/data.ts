@@ -40,7 +40,7 @@ export const summaryInfos: SummaryInfo[] = [
     type: 'plain',
     title: '事業内容',
     contents: [
-      '各種アプリの企画、開発、設計、製造及び販売',
+      '各種ソフトウェアの企画、設計、開発及び販売',
       '※ スマホ、パソコン、XR ヘッドセット、スマートウォッチ、セットトップボックス等',
     ],
   },
