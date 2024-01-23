@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     default: 'Ark Studios',
   },
   description: '選び抜かれたソリューション、未来への方舟。',
+  metadataBase: new URL('https://arkstudios.co.jp'),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
