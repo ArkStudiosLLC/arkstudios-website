@@ -1,6 +1,3 @@
-import bitRemoteFallbackIcon from '@/../public/images/app-icons/BitRemote.png'
-import bitRemoteIcon from '@/../public/images/app-icons/BitRemote.webp'
-
 export interface PlatformInfo {
   name: 'iOS' | 'iPadOS' | 'macOS' | 'visionOS' | 'watchOS' | 'tvOS'
   isSupported: boolean
@@ -27,8 +24,8 @@ export const appInfos: AppInfo[] = [
   {
     title: 'BitRemote',
     subtitle: 'ダウンロードタスク遠隔管理アプリ',
-    iconSource: bitRemoteIcon.src,
-    iconFallbackSource: bitRemoteFallbackIcon.src,
+    iconSource: '/images/app-icons/BitRemote.webp',
+    iconFallbackSource: '/images/app-icons/BitRemote.png',
     websiteLink: 'https://bitremote.app',
     description: `BitRemote は、Apple プラットフォームに最適化され、ダウンロードタスクを効率的かつ簡単に管理するツールです。安全性を重視し、クライアント※のログイン情報は弊社サーバーではなく、デバイス内部や iCloud に安全に保管。大切なデータは、いつでもどこでも、お客様だけの手の中に。
 

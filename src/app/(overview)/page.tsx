@@ -1,6 +1,3 @@
-import arkFallbackImage from '@/../public/images/Ark.jpg'
-import arkImage from '@/../public/images/Ark.webp'
-
 import Footer from '../ui/components/footer'
 import NavigationBar from '../ui/components/navigation-bar'
 
@@ -8,9 +5,9 @@ function CanvasSection() {
   return (
     <div className='flex w-full flex-col items-center justify-center gap-14 rounded-3xl px-6 md:px-10 lg:px-10 xl:px-16 2xl:max-w-[128rem] 2xl:px-24'>
       <picture>
-        <source srcSet={arkImage.src} type='image/webp'></source>
+        <source srcSet='/images/Ark.webp' type='image/webp'></source>
         <img
-          src={arkFallbackImage.src}
+          src='/images/Ark.jpg'
           alt='Ark and sea'
           loading='lazy'
           decoding='async'
