@@ -1,0 +1,44 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    reviewers:
+      - 'tatsuz0u'
+    schedule:
+      time: '09:00'
+      day: 'monday'
+      interval: 'weekly'
+      timezone: 'Asia/Tokyo'
+    target-branch: 'develop'
+    groups:
+      major-updates:
+        update-types:
+          - 'major'
+      minor-updates:
+        update-types:
+          - 'minor'
+      patch-updates:
+        update-types:
+          - 'patch'
+    open-pull-requests-limit: 5
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    reviewers:
+      - 'tatsuz0u'
+    schedule:
+      time: '09:00'
+      day: 'monday'
+      interval: 'weekly'
+      timezone: 'Asia/Tokyo'
+    target-branch: 'develop'
+    groups:
+      major-updates:
+        update-types:
+          - 'major'
+      minor-updates:
+        update-types:
+          - 'minor'
+      patch-updates:
+        update-types:
+          - 'patch'
+    open-pull-requests-limit: 5
