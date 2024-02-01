@@ -84,7 +84,7 @@ function AppCards() {
                     case 'year':
                       return '年額'
                     case 'lifetime':
-                      return '永続'
+                      return '永年'
                   }
                 })()}
                 subtitle={info.value}
