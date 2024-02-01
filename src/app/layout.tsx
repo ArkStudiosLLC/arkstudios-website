@@ -59,10 +59,25 @@ export const metadata: Metadata = {
   },
 }
 
+function NoScriptHiddenStyle() {
+  return (
+    <noscript>
+      <style>
+        {`.noscript\\:hidden {
+        display: none !important;
+        }`}
+      </style>
+    </noscript>
+  )
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='ja'>
-      <body className={`${inter.className} subpixel-antialiased`}>{children}</body>
+      <body className={`${inter.className} subpixel-antialiased`}>
+        <NoScriptHiddenStyle />
+        {children}
+      </body>
     </html>
   )
 }
