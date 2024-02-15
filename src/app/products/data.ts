@@ -49,9 +49,9 @@ export const appInfos: AppInfo[] = [
       { type: 'lifetime', value: '6,000円' },
     ],
     platformInfos: [
-      { name: 'iOS', isSupported: true, versionDescription: '16.0+' },
-      { name: 'iPadOS', isSupported: true, versionDescription: '16.0+' },
-      { name: 'macOS', isSupported: true, versionDescription: '13.0+' },
+      { name: 'iOS', isSupported: true, versionDescription: '17.0+' },
+      { name: 'iPadOS', isSupported: true, versionDescription: '17.0+' },
+      { name: 'macOS', isSupported: true, versionDescription: '14.0+' },
       { name: 'visionOS', isSupported: false },
       { name: 'watchOS', isSupported: false },
       { name: 'tvOS', isSupported: false },
