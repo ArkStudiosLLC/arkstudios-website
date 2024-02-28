@@ -1,0 +1,118 @@
+{
+  "Metadata": {
+    "Template": {
+      "description": "Ark Studios 合同会社 | ソフトウェアの開発・販売・サービス提供を行っています。"
+    },
+    "Company": {
+      "title": "会社情報"
+    },
+    "Products": {
+      "title": "製品紹介"
+    }
+  },
+  "NavigationBar": {
+    "company": "製品紹介",
+    "products": "会社情報"
+  },
+  "Home": {
+    "Slogan": {
+      "full": "選び抜かれたソリューション、未来への方舟。",
+      "upper": "選び抜かれたソリューション、",
+      "lower": "未来への方舟。"
+    },
+    "Business": {
+      "title": "事業内容",
+      "products": "製品一覧",
+      "SoftwareDevelopment": {
+        "title": "ソフトウェア設計・販売",
+        "description": "自社開発のソフトウェアの企画、設計、開発、販売を主軸に事業を展開しています。",
+        "Price": {
+          "title": "価格に関して",
+          "content": "各製品には独自の価格設定があります。具体的な価格につきましては、下記「製品一覧」ボタンよりご確認いただけます。"
+        },
+        "Payment": {
+          "title": "購入方法・流れ",
+          "content": "App Store および各製品の公式サイトを通じて、定期購読制と買い切り制、2つの形態で提供しています。定期購読制では、定期的な支払いにより利用できます。買い切り制では、一度の支払いで永続的な利用が可能です。"
+        }
+      }
+    }
+  },
+  "Company": {
+    "Summary": {
+      "title": "会社概要",
+      "Info": {
+        "name": "会社名称",
+        "officialName": "正式名称",
+        "address": "所在地",
+        "FoundingDate": {
+          "title": "設立日",
+          "content": "2023年11月27日"
+        },
+        "Capital": {
+          "title": "資本金",
+          "content": "5,000,000円"
+        },
+        "FiscalPeriod": {
+          "title": "決算時期",
+          "content": "10月"
+        },
+        "BoardMember": {
+          "title": "役員構成",
+          "representativeMembers": "代表社員：曾令強",
+          "executiveMembers": "業務執行社員：曾令強、荒木辰造"
+        },
+        "Business": {
+          "title": "事業内容",
+          "content": "各種ソフトウェアの企画、設計、開発及び販売",
+          "note": "※ スマホ、パソコン、XR ヘッドセット、スマートウォッチ、セットトップボックス等"
+        }
+      }
+    },
+    "History": {
+      "title": "会社沿革",
+      "Info": {
+        "Date": {
+          "year": "年",
+          "Month": {
+            "november": "11月"
+          }
+        },
+        "2023": {
+          "11": {
+            "founding": "東京都墨田区にソフトウェア開発会社として会社設立",
+            "ceo": "曾令強が最高経営責任者に就任",
+            "cto": "荒木辰造が最高技術責任者に就任",
+            "bitremote": "ダウンロードタスク遠隔操作アプリ「BitRemote」を提供"
+          }
+        }
+      }
+    }
+  },
+  "Products": {
+    "title": "製品一覧",
+    "Summary": {
+      "website": "公式サイト"
+    },
+    "Description": {
+      "title": "概要"
+    },
+    "Price": {
+      "title": "価格",
+      "month": "月額",
+      "year": "年額",
+      "lifetime": "永年"
+    },
+    "Platform": {
+      "title": "動作環境"
+    },
+    "BitRemote": {
+      "subtitle": "ダウンロードタスク遠隔管理アプリ",
+      "description": "BitRemote は、Apple プラットフォームに最適化され、ダウンロードタスクを効率的かつ簡単に管理するツールです。安全性を重視し、クライアント※のログイン情報は弊社サーバーではなく、デバイス内部や iCloud に安全に保管。大切なデータは、いつでもどこでも、お客様だけの手の中に。\n\n最先端のネイティブフレームワークにより、BitRemote は OS 上で直接動作し、ローカルファイルへの素早いアクセス※※や、バックグラウンドでの安定した動作を実現。加えて、Apple 独自のフレームワークを駆使した特別な機能を提供します。\n\n広範囲にわたるクライアントのサポートで、BitRemote は以下のクライアントに対応：\n・aria2\n・qBittorrent\n・Transmission\n・QNAP Download Station\n・Synology Download Station\n\nお客様のニーズに合わせて、GitHub でのリクエストに基づき、継続的に新しいクライアントへの対応を拡大していきます。BitRemote で、ダウンロードタスク管理をもっとスマートに、もっと安全に。\n\n※ クライアントとは、ダウンロードツールのことを指します。\n※※ ローカルでダウンロードを行うのではなく、クライアントを遠隔操作するツールです。",
+      "PriceInfo": {
+        "month": "160円",
+        "year": "1,600円",
+        "lifetime": "8,000円"
+      }
+    }
+  }
+}

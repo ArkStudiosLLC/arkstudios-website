@@ -1,17 +1,26 @@
-import { Metadata } from 'next'
 import React from 'react'
 
-import { summaryInfos, historyInfos } from './data'
-import Footer from '../ui/components/footer'
-import NavigationBar from '../ui/components/navigation-bar'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { Language } from '@/i18n/i18n-config'
 
-export const metadata: Metadata = {
-  title: '会社情報',
+import { getSummaryInfos, getHistoryInfos } from './data'
+import Footer from '../../ui/components/footer'
+import NavigationBar from '../../ui/components/navigation-bar'
+
+export async function generateMetadata({
+  params: { language },
+}: {
+  params: { language: Language }
+}) {
+  return { title: (await getDictionary(language)).Metadata.Company.title }
 }
 
-function SummarySection() {
+async function SummarySection({ language }: { language: Language }) {
+  const d = (await getDictionary(language)).Company.Summary
+  const summaryInfos = await getSummaryInfos({ language })
+
   return (
-    <Section title='会社概要'>
+    <Section title={d.title}>
       {summaryInfos.map((summaryInfo) => {
         const key = summaryInfo.type + summaryInfo.title + summaryInfo.contents.length
         switch (summaryInfo.type) {
@@ -34,7 +43,7 @@ function SummarySection() {
                 </address>
                 <div className='noscript:hidden my-4 h-96 w-auto rounded-xl bg-zinc-200 p-2 lg:w-3/4 dark:bg-cyan-900'>
                   <iframe
-                    src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12959.085206037993!2d139.8305953!3d35.7072451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889b6778839b5%3A0xd022b00527a97c74!2sArk%20Studios!5e0!3m2!1sja!2sjp!4v1705495236118!5m2!1sja!2sjp'
+                    src={`https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12959.085206037993!2d139.8305953!3d35.7072451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889b6778839b5%3A0xd022b00527a97c74!2sArk%20Studios!5e0!3m2!1sja!2sjp!4v1705495236118!5m2!1s${language}!2sjp`}
                     allowFullScreen
                     loading='lazy'
                     referrerPolicy='no-referrer-when-downgrade'
@@ -49,9 +58,12 @@ function SummarySection() {
   )
 }
 
-function HistorySection() {
+async function HistorySection({ language }: { language: Language }) {
+  const d = (await getDictionary(language)).Company.History
+  const historyInfos = await getHistoryInfos({ language })
+
   return (
-    <Section title='会社沿革'>
+    <Section title={d.title}>
       <table>
         <tbody>
           {historyInfos.map((historyInfo) => {
@@ -118,14 +130,18 @@ function Label({ children }: { children: React.ReactNode }) {
   return <p className='font-light text-zinc-700 dark:text-zinc-300'>{children}</p>
 }
 
-export default function Page() {
+export default function Page({
+  params: { language },
+}: {
+  params: { language: Language }
+}) {
   return (
     <div>
-      <NavigationBar />
+      <NavigationBar language={language} />
       <div className='mt-14 flex flex-col items-center'>
         <div className='w-limited flex flex-col items-center justify-center gap-20 divide-y divide-zinc-300 pb-32 pt-14 *:w-full md:pt-20 dark:divide-cyan-900 [&>*:not(:first-child)]:pt-20'>
-          <SummarySection />
-          <HistorySection />
+          <SummarySection language={language} />
+          <HistorySection language={language} />
         </div>
       </div>
       <Footer />
