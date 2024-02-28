@@ -15,7 +15,7 @@ async function getLinks({ language }: { language: Language }) {
 
 function Logo({ language }: { language: Language }) {
   return (
-    <a href={`/${language}/`}>
+    <a href={`/${language}`}>
       <p className='flex items-baseline gap-1 text-xl font-semibold'>
         <span className='rounded-md bg-cyan-800 px-1 py-0.5 text-white'>Ark</span>
         Studios
