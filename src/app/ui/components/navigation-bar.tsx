@@ -1,14 +1,21 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const links = [
-  { name: '製品紹介', destination: '/products' },
-  { name: '会社情報', destination: '/company' },
-]
+import { getDictionary } from '@/i18n/get-dictionary'
+import { Language } from '@/i18n/i18n-config'
 
-function Logo() {
+async function getLinks({ language }: { language: Language }) {
+  const d = (await getDictionary(language)).NavigationBar
+
+  return [
+    { name: d.products, destination: `/${language}/products` },
+    { name: d.company, destination: `/${language}/company` },
+  ]
+}
+
+function Logo({ language }: { language: Language }) {
   return (
-    <a href='/'>
+    <a href={`/${language}/`}>
       <p className='flex items-baseline gap-1 text-xl font-semibold'>
         <span className='rounded-md bg-cyan-800 px-1 py-0.5 text-white'>Ark</span>
         Studios
@@ -17,7 +24,9 @@ function Logo() {
   )
 }
 
-function Links() {
+async function Links({ language }: { language: Language }) {
+  const links = await getLinks({ language })
+
   return (
     <div className='flex gap-4'>
       {links.map((link) => {
@@ -33,13 +42,15 @@ function Links() {
   )
 }
 
-export default function NavigationBar() {
+export default async function NavigationBar({ language }: { language: Language }) {
+  const links = await getLinks({ language })
+
   return (
     <nav className='fixed top-0 z-10 flex w-full justify-center backdrop-blur-3xl transition-colors has-[:checked]:bg-white/85 md:has-[:checked]:bg-inherit dark:bg-black/10 dark:has-[:checked]:bg-cyan-950/95 dark:md:has-[:checked]:bg-black/10'>
       <div className='w-limited flex items-center justify-between py-3'>
-        <Logo />
+        <Logo language={language} />
         <div className='hidden md:block'>
-          <Links />
+          <Links language={language} />
         </div>
         <div className='relative flex flex-col items-end md:hidden'>
           <FontAwesomeIcon icon={faBars} className='h-5 w-5' />

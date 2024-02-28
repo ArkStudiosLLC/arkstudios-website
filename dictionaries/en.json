@@ -1,0 +1,118 @@
+{
+  "Metadata": {
+    "Template": {
+      "description": "Ark Studios LLC | We are engaged in software development, sales, and service provision."
+    },
+    "Company": {
+      "title": "Company"
+    },
+    "Products": {
+      "title": "Products"
+    }
+  },
+  "NavigationBar": {
+    "company": "Company",
+    "products": "Products"
+  },
+  "Home": {
+    "Slogan": {
+      "full": "Selected solutions, an ark to the future.",
+      "upper": "Selected solutions,",
+      "lower": "an ark to the future."
+    },
+    "Business": {
+      "title": "Business",
+      "products": "Products",
+      "SoftwareDevelopment": {
+        "title": "Software Development & Sales",
+        "description": "We are expanding our business primarily in the planning, design, development, and sales of our own software.",
+        "Price": {
+          "title": "Pricing",
+          "content": "Each product has its own pricing. For specific prices, please check from the 'Products' button below."
+        },
+        "Payment": {
+          "title": "Payment",
+          "content": "We offer two forms of provision through the App Store and the official websites of each product: subscription and outright purchase. With the subscription model, you can use the service with regular payments. With the outright purchase model, you can use the service permanently with a one-time payment."
+        }
+      }
+    }
+  },
+  "Company": {
+    "Summary": {
+      "title": "Company Overview",
+      "Info": {
+        "name": "Company name",
+        "officialName": "Official name",
+        "address": "Location",
+        "FoundingDate": {
+          "title": "Founding date",
+          "content": "November 27, 2023"
+        },
+        "Capital": {
+          "title": "Capital",
+          "content": "5,000,000 yen"
+        },
+        "FiscalPeriod": {
+          "title": "Fiscal year end",
+          "content": "October"
+        },
+        "BoardMember": {
+          "title": "Board members",
+          "representativeMembers": "Representative Member: Lingqiang Zeng",
+          "executiveMembers": "Executive Members: Lingqiang Zeng, Tatsuzo Araki"
+        },
+        "Business": {
+          "title": "Business description",
+          "content": "Planning, design, development, and sales of various software",
+          "note": "* Including smartphones, computers, XR headsets, smartwatches, tv boxes, etc."
+        }
+      }
+    },
+    "History": {
+      "title": "Company History",
+      "Info": {
+        "Date": {
+          "year": "",
+          "Month": {
+            "november": "November"
+          }
+        },
+        "2023": {
+          "11": {
+            "founding": "Established as a software development company in Sumida, Tokyo.",
+            "ceo": "Lingqiang Zeng appointed as CEO.",
+            "cto": "Tatsuzo Araki appointed as CTO.",
+            "bitremote": "Started the public beta of BitRemote."
+          }
+        }
+      }
+    }
+  },
+  "Products": {
+    "title": "Products",
+    "Summary": {
+      "website": "Website"
+    },
+    "Description": {
+      "title": "Overview"
+    },
+    "Price": {
+      "title": "Pricing",
+      "month": "Monthly",
+      "year": "Annually",
+      "lifetime": "Lifetime"
+    },
+    "Platform": {
+      "title": "System requirement"
+    },
+    "BitRemote": {
+      "subtitle": "Remote download task management app",
+      "description": "BitRemote is optimized for the Apple platform and is a tool for efficiently and easily managing download tasks. Focusing on security, client login information is stored securely inside the device or in iCloud, not on our servers. Your important data is always and everywhere in your hands.\n\nUsing the latest native frameworks, BitRemote operates directly on the OS, allowing quick access to local files and stable operation in the background. In addition, we provide special features using Apple's unique frameworks.\n\nSupporting a wide range of clients, BitRemote is compatible with the following clients:\n・aria2\n・qBittorrent\n・Transmission\n・QNAP Download Station\n・Synology Download Station\n\nBased on requests on GitHub, we continuously expand support for new clients to meet customer needs. Make download task management smarter and safer with BitRemote.\n\n* A client refers to a download tool.\n** It is a tool for remotely controlling a client, not for downloading locally.",
+      "PriceInfo": {
+        "month": "$0.99",
+        "year": "$9.99",
+        "lifetime": "$49.99"
+      }
+    }
+  }
+}

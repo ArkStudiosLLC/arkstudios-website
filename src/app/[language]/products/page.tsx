@@ -12,19 +12,33 @@ import {
   faTv,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Metadata } from 'next'
 import React from 'react'
 
-import { AppInfo, appInfos, PriceInfo, PlatformInfo } from './data'
-import Footer from '../ui/components/footer'
-import NavigationBar from '../ui/components/navigation-bar'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { Language } from '@/i18n/i18n-config'
 
-export const metadata: Metadata = {
-  title: '製品紹介',
+import { AppInfo, getAppInfos, PriceInfo, PlatformInfo } from './data'
+import Footer from '../../ui/components/footer'
+import NavigationBar from '../../ui/components/navigation-bar'
+
+export async function generateMetadata({
+  params: { language },
+}: {
+  params: { language: Language }
+}) {
+  return { title: (await getDictionary(language)).Metadata.Products.title }
 }
 
-function AppCards() {
-  function SummarySection({ appInfo }: { appInfo: AppInfo }) {
+async function AppCards({ language }: { language: Language }) {
+  async function SummarySection({
+    language,
+    appInfo,
+  }: {
+    language: Language
+    appInfo: AppInfo
+  }) {
+    const d = (await getDictionary(language)).Products.Summary
+
     return (
       <div className='flex gap-4 sm:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12'>
         <div className='aspect-square shrink-0'>
@@ -47,7 +61,7 @@ function AppCards() {
           <div className='flex w-full justify-start'>
             <a href={appInfo.websiteLink}>
               <p className='rounded-xl bg-zinc-700 px-3 py-1.5 text-xs font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-sm dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'>
-                公式サイト
+                {d.website}
               </p>
             </a>
           </div>
@@ -56,10 +70,18 @@ function AppCards() {
     )
   }
 
-  function DescriptionSection({ content }: { content: string }) {
+  async function DescriptionSection({
+    language,
+    content,
+  }: {
+    language: Language
+    content: string
+  }) {
+    const d = (await getDictionary(language)).Products.Description
+
     return (
       <div className='flex flex-col gap-3'>
-        <SubsectionHeader title='概要' />
+        <SubsectionHeader title={d.title} />
         <p className='select-text whitespace-pre-line text-xs font-light text-zinc-700 sm:text-sm dark:text-zinc-200'>
           {content}
         </p>
@@ -67,10 +89,18 @@ function AppCards() {
     )
   }
 
-  function PriceSection({ infos }: { infos: PriceInfo[] }) {
+  async function PriceSection({
+    language,
+    infos,
+  }: {
+    language: Language
+    infos: PriceInfo[]
+  }) {
+    const d = (await getDictionary(language)).Products.Price
+
     return (
       <div className='flex flex-col gap-3'>
-        <SubsectionHeader title='価格' />
+        <SubsectionHeader title={d.title} />
         <HorizontalScrollSection>
           {infos.map((info) => {
             return (
@@ -80,11 +110,11 @@ function AppCards() {
                 title={(function () {
                   switch (info.type) {
                     case 'month':
-                      return '月額'
+                      return d.month
                     case 'year':
-                      return '年額'
+                      return d.year
                     case 'lifetime':
-                      return '永年'
+                      return d.lifetime
                   }
                 })()}
                 subtitle={info.value}
@@ -96,10 +126,18 @@ function AppCards() {
     )
   }
 
-  function PlatformSection({ infos }: { infos: PlatformInfo[] }) {
+  async function PlatformSection({
+    language,
+    infos,
+  }: {
+    language: Language
+    infos: PlatformInfo[]
+  }) {
+    const d = (await getDictionary(language)).Products.Platform
+
     return (
       <div className='flex flex-col gap-3'>
-        <SubsectionHeader title='動作環境' />
+        <SubsectionHeader title={d.title} />
         <HorizontalScrollSection>
           {infos.map((info) => {
             return (
@@ -116,6 +154,8 @@ function AppCards() {
     )
   }
 
+  const appInfos = await getAppInfos({ language: language })
+
   return (
     <div className='my-10'>
       {appInfos.map((appInfo) => {
@@ -124,10 +164,10 @@ function AppCards() {
             key={appInfo.title}
             className='flex w-full flex-col gap-6 divide-y-2 divide-dashed divide-zinc-300 rounded-3xl bg-zinc-100 p-6 transition-shadow sm:p-8 lg:p-10 lg:hover:shadow-xl dark:divide-cyan-800 dark:bg-cyan-950 lg:dark:hover:shadow-2xl [&>*:not(:first-child)]:pt-6'
           >
-            <SummarySection appInfo={appInfo} />
-            <DescriptionSection content={appInfo.description} />
-            <PriceSection infos={appInfo.priceInfos} />
-            <PlatformSection infos={appInfo.platformInfos} />
+            <SummarySection language={language} appInfo={appInfo} />
+            <DescriptionSection language={language} content={appInfo.description} />
+            <PriceSection language={language} infos={appInfo.priceInfos} />
+            <PlatformSection language={language} infos={appInfo.platformInfos} />
           </div>
         )
       })}
@@ -216,14 +256,20 @@ function SubsectionHeader({ title }: { title: string }) {
   return <p className='text-base font-semibold sm:text-lg'>{title}</p>
 }
 
-export default function Page() {
+export default async function Page({
+  params: { language },
+}: {
+  params: { language: Language }
+}) {
+  const d = (await getDictionary(language)).Products
+
   return (
     <div className='flex flex-col'>
-      <NavigationBar />
+      <NavigationBar language={language} />
       <div className='mt-14 flex select-none justify-center'>
         <div className='w-limited pb-32 pt-14 md:pt-20'>
-          <h1 className='text-4xl font-bold'>製品一覧</h1>
-          <AppCards />
+          <h1 className='text-4xl font-bold'>{d.title}</h1>
+          <AppCards language={language} />
         </div>
       </div>
       <Footer />
