@@ -1,8 +1,7 @@
-import { getDictionary } from '@/i18n/get-dictionary'
-import { Language } from '@/i18n/i18n-config'
-
-import Footer from '../../ui/components/footer'
-import NavigationBar from '../../ui/components/navigation-bar'
+import { getDictionary } from '@/app/i18n/get-dictionary'
+import { Language } from '@/app/i18n/i18n-config'
+import Footer from '@/app/ui/components/footer'
+import NavigationBar from '@/app/ui/components/navigation-bar'
 
 async function CanvasSection({ language }: { language: Language }) {
   const d = (await getDictionary(language)).Home.Slogan

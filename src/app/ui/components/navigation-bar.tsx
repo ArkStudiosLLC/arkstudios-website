@@ -1,8 +1,8 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { getDictionary } from '@/i18n/get-dictionary'
-import { Language } from '@/i18n/i18n-config'
+import { getDictionary } from '@/app/i18n/get-dictionary'
+import { Language } from '@/app/i18n/i18n-config'
 
 async function getLinks({ language }: { language: Language }) {
   const d = (await getDictionary(language)).NavigationBar

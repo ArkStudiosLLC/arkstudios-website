@@ -1,5 +1,5 @@
-import { getDictionary } from '@/i18n/get-dictionary'
-import { Language } from '@/i18n/i18n-config'
+import { getDictionary } from '@/app/i18n/get-dictionary'
+import { Language } from '@/app/i18n/i18n-config'
 
 /* eslint-disable no-irregular-whitespace */
 interface SummaryInfo {

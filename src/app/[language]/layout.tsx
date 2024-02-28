@@ -1,8 +1,8 @@
 import '../globals.css'
 import { Inter } from 'next/font/google'
 
-import { getDictionary } from '@/i18n/get-dictionary'
-import { i18n, type Language } from '@/i18n/i18n-config'
+import { getDictionary } from '@/app/i18n/get-dictionary'
+import { i18n, type Language } from '@/app/i18n/i18n-config'
 
 import type { Viewport } from 'next'
 
