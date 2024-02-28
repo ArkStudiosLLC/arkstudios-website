@@ -14,12 +14,12 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
-import { getDictionary } from '@/i18n/get-dictionary'
-import { Language } from '@/i18n/i18n-config'
+import { getDictionary } from '@/app/i18n/get-dictionary'
+import { Language } from '@/app/i18n/i18n-config'
+import Footer from '@/app/ui/components/footer'
+import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { AppInfo, getAppInfos, PriceInfo, PlatformInfo } from './data'
-import Footer from '../../ui/components/footer'
-import NavigationBar from '../../ui/components/navigation-bar'
 
 export async function generateMetadata({
   params: { language },
