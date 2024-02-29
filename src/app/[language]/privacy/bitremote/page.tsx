@@ -10,7 +10,7 @@ export async function generateMetadata({
 }: {
   params: { language: Language }
 }) {
-  return { title: (await getDictionary(language)).Metadata.PrivacyPolicy.BitRemote }
+  return { title: (await getDictionary(language)).Metadata.PrivacyPolicy.BitRemote.title }
 }
 
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
