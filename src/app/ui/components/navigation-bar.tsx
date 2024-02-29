@@ -60,7 +60,7 @@ function LanguageToggle({
   })()
   return (
     <a href={`/${targetLanguage}${pathname}`}>
-      <div className='h-8 w-8 rounded-lg bg-zinc-100 p-1 transition-colors hover:bg-zinc-200 dark:bg-cyan-950 dark:hover:bg-cyan-900'>
+      <div className='h-8 w-8 rounded-lg bg-zinc-200/50 p-1 backdrop-blur-3xl transition-colors hover:bg-zinc-300/75 active:bg-zinc-400 dark:bg-cyan-900/50 dark:hover:bg-cyan-900/75 dark:active:bg-cyan-800'>
         <svg
           stroke='currentColor'
           fill='none'
