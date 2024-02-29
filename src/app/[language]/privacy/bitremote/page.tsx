@@ -5,6 +5,14 @@ import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { getPrivacyPolicyItems } from './data'
 
+export async function generateMetadata({
+  params: { language },
+}: {
+  params: { language: Language }
+}) {
+  return { title: (await getDictionary(language)).Metadata.PrivacyPolicy.BitRemote }
+}
+
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className='flex flex-col gap-1'>
