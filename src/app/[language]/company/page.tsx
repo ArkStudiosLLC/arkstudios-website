@@ -7,6 +7,8 @@ import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { getSummaryInfos, getHistoryInfos } from './data'
 
+const pathname = '/company'
+
 export async function generateMetadata({
   params: { language },
 }: {
@@ -137,7 +139,7 @@ export default function Page({
 }) {
   return (
     <div>
-      <NavigationBar language={language} />
+      <NavigationBar language={language} pathname={pathname} />
       <div className='mt-14 flex flex-col items-center'>
         <div className='w-limited flex flex-col items-center justify-center gap-20 divide-y divide-zinc-300 pb-32 pt-14 *:w-full md:pt-20 dark:divide-cyan-900 [&>*:not(:first-child)]:pt-20'>
           <SummarySection language={language} />
