@@ -5,6 +5,8 @@ import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { getPrivacyPolicyItems } from './data'
 
+const pathname = '/privacy/bitremote'
+
 export async function generateMetadata({
   params: { language },
 }: {
@@ -61,7 +63,7 @@ export default async function Page({
 
   return (
     <div className='flex flex-col'>
-      <NavigationBar language={language} />
+      <NavigationBar language={language} pathname={pathname} />
       <div className='mt-14 flex select-none justify-center'>
         <div className='w-limited pb-32 pt-14 md:pt-20'>
           <div className='flex flex-col gap-10'>

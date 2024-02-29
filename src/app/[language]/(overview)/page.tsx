@@ -3,6 +3,8 @@ import { Language } from '@/app/i18n/i18n-config'
 import Footer from '@/app/ui/components/footer'
 import NavigationBar from '@/app/ui/components/navigation-bar'
 
+const pathname = ''
+
 async function CanvasSection({ language }: { language: Language }) {
   const d = (await getDictionary(language)).Home.Slogan
 
@@ -85,7 +87,7 @@ export default function Page({
 }) {
   return (
     <div className='flex select-none flex-col'>
-      <NavigationBar language={language} />
+      <NavigationBar language={language} pathname={pathname} />
       <div className='mt-14 flex flex-col items-center gap-32 divide-y divide-zinc-300 pb-32 pt-8 dark:divide-cyan-800 [&>*:not(:first-child)]:pt-32'>
         <CanvasSection language={language} />
         <BusinessSection language={language} />
