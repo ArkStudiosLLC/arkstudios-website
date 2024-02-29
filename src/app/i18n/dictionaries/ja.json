@@ -56,8 +56,8 @@
     }
   },
   "NavigationBar": {
-    "company": "製品紹介",
-    "products": "会社情報"
+    "company": "会社情報",
+    "products": "製品紹介"
   },
   "Home": {
     "Slogan": {
