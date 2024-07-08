@@ -30,5 +30,20 @@ export async function getEULAItems({
       title: d.EnglishVersionPrevail.title,
       content: d.EnglishVersionPrevail.content,
     },
+    {
+      type: 'plain',
+      title: d.Disputes.title,
+      content: d.Disputes.content,
+    },
+    {
+      type: 'plain',
+      title: d.PolicyChanges.title,
+      content: d.PolicyChanges.content,
+    },
+    {
+      type: 'plain',
+      title: d.ContactUs.title,
+      content: d.ContactUs.content,
+    },
   ]
 }
