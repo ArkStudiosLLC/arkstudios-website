@@ -13,6 +13,11 @@
       "BitRemote": {
         "title": "BitRemote Privacy Policy"
       }
+    },
+    "EULA": {
+      "BitRemote": {
+        "title": "BitRemote End User License Agreement"
+      }
     }
   },
   "PrivacyPolicy": {
@@ -57,6 +62,23 @@
       "ContactUs": {
         "title": "Contact Us",
         "content": "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at support@bitremote.app."
+      }
+    }
+  },
+  "EULA": {
+    "BitRemote": {
+      "title": "BitRemote End User License Agreement",
+      "AgreementAndPriority": {
+        "title": "Agreement and Priority of EULA",
+        "content": "By using this Licensed Application, you agree to the terms of both this End User License Agreement and the Apple's standard EULA (https://www.apple.com/legal/internet-services/itunes/dev/stdeula). This Agreement is designed to complement and supersede the Apple's standard EULA in instances where discrepancies or conflicts arise. All terms of the Apple's standard EULA remain in effect except where explicitly modified by this Agreement. You acknowledge and agree that this Agreement takes precedence over the Apple's standard EULA for all purposes related to your use of the Licensed Application."
+      },
+      "DeviceLimitation": {
+        "title": "Limitation on Simultaneous Use Across Platforms",
+        "content": "You are granted the ability to use the Licensed Application on an unlimited number of devices that you own or control. However, you may not simultaneously use the Licensed Application on more than three devices per Apple platform (including iOS, iPadOS, macOS, watchOS, tvOS, and visionOS). If the Application is activated on more than three devices per platform at the same time, the earliest activated device(s) will be automatically deactivated. You acknowledge and agree that this limit of simultaneous use applies separately to each Apple platform."
+      },
+      "EnglishVersionPrevail": {
+        "title": "Precedence of the English Version",
+        "content": "In the event of any discrepancies or conflicts between the English version of this Agreement and its translations, the English version shall prevail. This clause is intended to ensure clarity and avoid legal ambiguities that may arise from translation differences. You acknowledge and agree that the English version of this Agreement shall be the definitive version for interpreting the terms and conditions of use."
       }
     }
   },
