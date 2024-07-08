@@ -57,7 +57,7 @@
       },
       "PolicyChanges": {
         "title": "Changes to This Privacy Policy",
-        "content": "We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.\n\nThis policy is effective as of 2024-02-28."
+        "content": "We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.\n\nThis policy is effective as of 2024-07-09."
       },
       "ContactUs": {
         "title": "Contact Us",
@@ -79,6 +79,18 @@
       "EnglishVersionPrevail": {
         "title": "Precedence of the English Version",
         "content": "In the event of any discrepancies or conflicts between the English version of this Agreement and its translations, the English version shall prevail. This clause is intended to ensure clarity and avoid legal ambiguities that may arise from translation differences. You acknowledge and agree that the English version of this Agreement shall be the definitive version for interpreting the terms and conditions of use."
+      },
+      "Disputes": {
+        "title": "Disputes",
+        "content": "This EULA shall be interpreted and applied in accordance with the laws of Japan. Furthermore, for disputes related to this EULA, the Tokyo Summary Court or the Tokyo District Court shall be the exclusive agreed jurisdictional court of first instance, depending on the amount of the claim."
+      },
+      "PolicyChanges": {
+        "title": "Changes to This EULA",
+        "content": "We may update our EULA from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new EULA on this page.\n\nThis policy is effective as of 2024-07-09."
+      },
+      "ContactUs": {
+        "title": "Contact Us",
+        "content": "If you have any questions or suggestions about our EULA, do not hesitate to contact us at support@bitremote.app."
       }
     }
   },
