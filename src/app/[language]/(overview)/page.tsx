@@ -88,7 +88,7 @@ export default function Page({
   return (
     <div className='flex select-none flex-col'>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex flex-col items-center gap-32 divide-y divide-zinc-300 pb-32 pt-8 dark:divide-cyan-800 [&>*:not(:first-child)]:pt-32'>
+      <div className='mt-14 flex min-h-screen flex-col items-center gap-32 divide-y divide-zinc-300 pb-32 pt-8 dark:divide-cyan-800 [&>*:not(:first-child)]:pt-32'>
         <CanvasSection language={language} />
         <BusinessSection language={language} />
       </div>
