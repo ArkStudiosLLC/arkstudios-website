@@ -142,8 +142,8 @@
         },
         "BoardMember": {
           "title": "Board members",
-          "representativeMembers": "Representative member: Lingqiang Zeng",
-          "executiveMembers": "Executive members: Lingqiang Zeng, Tatsuzo Araki"
+          "representativeMembers": "Representative member: Tsuyoshi Araki",
+          "executiveMembers": "Executive members: Tsuyoshi Araki, Tatsuzo Araki"
         },
         "Business": {
           "title": "Business description",
@@ -164,7 +164,7 @@
         "2023": {
           "11": {
             "founding": "Established as a software development company in Sumida, Tokyo.",
-            "ceo": "Lingqiang Zeng appointed as CEO.",
+            "ceo": "Tsuyoshi Araki appointed as CEO.",
             "cto": "Tatsuzo Araki appointed as CTO.",
             "bitremote": "Started the public beta of BitRemote."
           }

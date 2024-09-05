@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     reviewers:
-      - 'tatsuz0u'
+      - 'tatsuzo-arkstudios'
     schedule:
       time: '09:00'
       day: 'monday'
