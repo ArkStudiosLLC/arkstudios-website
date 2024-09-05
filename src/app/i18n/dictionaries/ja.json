@@ -142,8 +142,8 @@
         },
         "BoardMember": {
           "title": "役員構成",
-          "representativeMembers": "代表社員：曾令強",
-          "executiveMembers": "業務執行社員：曾令強、荒木辰造"
+          "representativeMembers": "代表社員：荒木強",
+          "executiveMembers": "業務執行社員：荒木強、荒木辰造"
         },
         "Business": {
           "title": "事業内容",
@@ -164,7 +164,7 @@
         "2023": {
           "11": {
             "founding": "東京都墨田区にソフトウェア開発会社として会社設立",
-            "ceo": "曾令強が最高経営責任者に就任",
+            "ceo": "荒木強が最高経営責任者に就任",
             "cto": "荒木辰造が最高技術責任者に就任",
             "bitremote": "ダウンロードタスク遠隔操作アプリ「BitRemote」を提供"
           }
