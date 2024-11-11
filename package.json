@@ -15,7 +15,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "next": "15.0.2",
+    "next": "15.0.3",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -27,7 +27,7 @@
     "@typescript-eslint/parser": "^8.12.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
-    "eslint-config-next": "15.0.2",
+    "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "postcss": "^8",
