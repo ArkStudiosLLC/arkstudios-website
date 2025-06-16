@@ -141,7 +141,7 @@ export default function Page({
     <div>
       <NavigationBar language={language} pathname={pathname} />
       <div className='mt-14 flex min-h-screen flex-col items-center'>
-        <div className='w-limited flex flex-col items-center justify-center gap-20 divide-y divide-zinc-300 pb-32 pt-14 *:w-full md:pt-20 dark:divide-cyan-900 [&>*:not(:first-child)]:pt-20'>
+        <div className='w-limited flex flex-col items-center justify-center divide-y divide-zinc-300 pb-32 pt-14 *:w-full md:pt-20 dark:divide-cyan-900 *:not-first:pt-20 *:not-last:pb-20'>
           <SummarySection language={language} />
           <HistorySection language={language} />
         </div>

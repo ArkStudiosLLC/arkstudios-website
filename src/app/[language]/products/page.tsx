@@ -164,7 +164,7 @@ async function AppCards({ language }: { language: Language }) {
         return (
           <div
             key={appInfo.title}
-            className='flex w-full flex-col gap-6 divide-y-2 divide-dashed divide-zinc-300 rounded-3xl bg-zinc-100 p-6 transition-shadow sm:p-8 lg:p-10 lg:hover:shadow-xl dark:divide-cyan-800 dark:bg-cyan-950 lg:dark:hover:shadow-2xl [&>*:not(:first-child)]:pt-6'
+            className='flex w-full flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-3xl bg-zinc-100 p-6 transition-shadow sm:p-8 lg:p-10 lg:hover:shadow-xl dark:divide-cyan-800 dark:bg-cyan-950 lg:dark:hover:shadow-2xl *:not-first:pt-6 *:not-last:pb-6'
           >
             <SummarySection language={language} appInfo={appInfo} />
             <DescriptionSection language={language} content={appInfo.description} />
@@ -179,7 +179,7 @@ async function AppCards({ language }: { language: Language }) {
 
 function HorizontalScrollSection({ children }: { children: React.ReactNode }) {
   return (
-    <div className='hidden-scrollbar flex gap-2 divide-x divide-zinc-300 overflow-x-auto dark:divide-cyan-800 [&>*:not(:first-child)]:pl-2'>
+    <div className='hidden-scrollbar flex divide-x divide-zinc-300 overflow-x-auto dark:divide-cyan-800 *:not-first:pl-2 *:not-last:pr-2'>
       {children}
     </div>
   )
