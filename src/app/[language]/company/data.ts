@@ -58,9 +58,9 @@ export async function getSummaryInfos({
       type: 'address',
       title: d.address,
       contents: [
-        '〒131-0043',
-        '東京都墨田区立花 2 丁目 25 番 8 号松美荘 16 号室',
-        '2-25-8-16 Tachibana, Sumida, Tokyo',
+        '〒150-0043',
+        '東京都渋谷区道玄坂１丁目１０番８号渋谷道玄坂東急ビル２Ｆ－Ｃ',
+        '2F-C, Shibuya Dogenzaka Tokyu Bldg., 1−10−8 Dogenzaka, Shibuya, Tokyo',
       ],
     },
   ]
