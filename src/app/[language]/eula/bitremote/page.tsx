@@ -8,11 +8,11 @@ import { getEULAItems } from './data'
 const pathname = '/eula/bitremote'
 
 export async function generateMetadata({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
-  return { title: (await getDictionary(language)).Metadata.EULA.BitRemote.title }
+  return { title: (await getDictionary((await params).language)).Metadata.EULA.BitRemote.title }
 }
 
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
@@ -33,10 +33,11 @@ function Label({ title }: { title: string }) {
 }
 
 export default async function Page({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
+  const { language } = await params
   const d = (await getDictionary(language)).EULA.BitRemote
   const eulaItems = await getEULAItems({ language })
 

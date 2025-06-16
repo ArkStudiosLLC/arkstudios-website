@@ -20,11 +20,11 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
-  const d = await getDictionary(language)
+  const d = await getDictionary((await params).language)
 
   return {
     title: {
@@ -86,13 +86,14 @@ function NoScriptHiddenStyle() {
   )
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { language },
+  params,
 }: {
   children: React.ReactNode
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
+  const { language } = await params
   return (
     <html lang={language}>
       <body className={`${inter.className} subpixel-antialiased`}>

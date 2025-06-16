@@ -80,11 +80,12 @@ async function BusinessSection({ language }: { language: Language }) {
   )
 }
 
-export default function Page({
-  params: { language },
+export default async function Page({
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
+  const { language } = await params
   return (
     <div className='flex select-none flex-col'>
       <NavigationBar language={language} pathname={pathname} />

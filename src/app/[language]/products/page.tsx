@@ -24,11 +24,11 @@ import { AppInfo, getAppInfos, PriceInfo, PlatformInfo } from './data'
 const pathname = '/products'
 
 export async function generateMetadata({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
-  return { title: (await getDictionary(language)).Metadata.Products.title }
+  return { title: (await getDictionary((await params).language)).Metadata.Products.title }
 }
 
 async function AppCards({ language }: { language: Language }) {
@@ -259,10 +259,11 @@ function SubsectionHeader({ title }: { title: string }) {
 }
 
 export default async function Page({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
+  const { language } = await params
   const d = (await getDictionary(language)).Products
 
   return (

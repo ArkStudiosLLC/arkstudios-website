@@ -10,11 +10,11 @@ import { getSummaryInfos, getHistoryInfos } from './data'
 const pathname = '/company'
 
 export async function generateMetadata({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
-  return { title: (await getDictionary(language)).Metadata.Company.title }
+  return { title: (await getDictionary((await params).language)).Metadata.Company.title }
 }
 
 async function SummarySection({ language }: { language: Language }) {
@@ -132,11 +132,12 @@ function Label({ children }: { children: React.ReactNode }) {
   return <p className='font-light text-zinc-700 dark:text-zinc-300'>{children}</p>
 }
 
-export default function Page({
-  params: { language },
+export default async function Page({
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
+  const { language } = await params
   return (
     <div>
       <NavigationBar language={language} pathname={pathname} />
