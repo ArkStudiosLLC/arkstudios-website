@@ -8,11 +8,11 @@ import { getPrivacyPolicyItems } from './data'
 const pathname = '/privacy/bitremote'
 
 export async function generateMetadata({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
-  return { title: (await getDictionary(language)).Metadata.PrivacyPolicy.BitRemote.title }
+  return { title: (await getDictionary((await params).language)).Metadata.PrivacyPolicy.BitRemote.title }
 }
 
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
@@ -54,10 +54,11 @@ function Links() {
 }
 
 export default async function Page({
-  params: { language },
+  params
 }: {
-  params: { language: Language }
+  params: Promise<{ language: Language }>
 }) {
+  const { language } = await params
   const d = (await getDictionary(language)).PrivacyPolicy.BitRemote
   const policyItems = await getPrivacyPolicyItems({ language })
 

@@ -64,10 +64,10 @@ function LanguageToggle({
         <svg
           stroke='currentColor'
           fill='none'
-          stroke-width='2'
+          strokeWidth='2'
           viewBox='0 0 24 24'
-          stroke-linecap='round'
-          stroke-linejoin='round'
+          strokeLinecap='round'
+          strokeLinejoin='round'
           aria-hidden='true'
           focusable='false'
           xmlns='http://www.w3.org/2000/svg'
@@ -94,7 +94,7 @@ export default async function NavigationBar({
   const links = await getLinks({ language })
 
   return (
-    <nav className='fixed top-0 z-10 flex w-full select-none justify-center backdrop-blur-3xl transition-colors has-[:checked]:bg-white/85 md:has-[:checked]:bg-inherit dark:bg-black/10 dark:has-[:checked]:bg-cyan-950/95 dark:md:has-[:checked]:bg-black/10'>
+    <nav className='fixed top-0 z-10 flex w-full select-none justify-center backdrop-blur-3xl transition-colors has-checked:bg-white/85 md:has-checked:bg-inherit dark:bg-black/10 dark:has-checked:bg-cyan-950/95 dark:md:has-checked:bg-black/10'>
       <div className='w-limited flex items-center justify-between py-3'>
         <Logo language={language} />
         <div className='flex items-center gap-5'>
