@@ -15,7 +15,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@tailwindcss/postcss": "^4.1.10",
+    "@tailwindcss/postcss": "^4.1.11",
     "next": "15.3.4",
     "react": "^19",
     "react-dom": "^19"
