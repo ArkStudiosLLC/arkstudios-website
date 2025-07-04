@@ -60,7 +60,7 @@ export async function getSummaryInfos({
       contents: [
         '〒150-0043',
         '東京都渋谷区道玄坂１丁目１０番８号渋谷道玄坂東急ビル２Ｆ－Ｃ',
-        '2F-C, Shibuya Dogenzaka Tokyu Bldg., 1−10−8 Dogenzaka, Shibuya, Tokyo',
+        '2F-C, Shibuya Dogenzaka Tokyu Bldg., 1-10-8 Dogenzaka, Shibuya, Tokyo',
       ],
     },
   ]
