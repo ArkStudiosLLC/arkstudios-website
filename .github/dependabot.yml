@@ -2,8 +2,6 @@ version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
-    reviewers:
-      - 'tatsuzo-arkstudios'
     schedule:
       time: '09:00'
       day: 'monday'
