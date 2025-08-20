@@ -19,15 +19,7 @@ export async function getSummaryInfos({
     {
       type: 'plain',
       title: d.name,
-      contents: ['Ark Studios 合同会社', 'Ark Studios LLC'],
-    },
-    {
-      type: 'plain',
-      title: d.officialName,
-      contents: [
-        'Ａｒｋ　Ｓｔｕｄｉｏｓ合同会社',
-        'ARK STUDIOS LIMITED LIABILITY COMPANY',
-      ],
+      contents: ['Ａｒｋ　Ｓｔｕｄｉｏｓ合同会社', 'Ark Studios LLC'],
     },
     {
       type: 'plain',
@@ -80,6 +72,13 @@ export async function getHistoryInfos({
   const d = (await getDictionary(language)).Company.History.Info
 
   return [
+    { type: 'year', time: '2025' + d.Date.year, content: '' },
+    {
+      type: 'month',
+      time: d.Date.Month.may,
+      content: d[2025][5].relocation,
+    },
+    { type: 'plain', time: '', content: '' },
     { type: 'year', time: '2023' + d.Date.year, content: '' },
     {
       type: 'month',
@@ -88,10 +87,6 @@ export async function getHistoryInfos({
     },
     { type: 'plain', time: '', content: d[2023][11].cto },
     { type: 'plain', time: '', content: d[2023][11].ceo },
-    {
-      type: 'plain',
-      time: '',
-      content: d[2023][11].founding,
-    },
+    { type: 'plain', time: '', content: d[2023][11].founding },
   ]
 }

@@ -126,7 +126,6 @@
       "title": "Company Overview",
       "Info": {
         "name": "Company name",
-        "officialName": "Official name",
         "address": "Location",
         "FoundingDate": {
           "title": "Founding date",
@@ -158,7 +157,13 @@
         "Date": {
           "year": "",
           "Month": {
+            "may": "May",
             "november": "November"
+          }
+        },
+        "2025": {
+          "5": {
+            "relocation": "Relocated the head office to Shibuya, Tokyo."
           }
         },
         "2023": {
