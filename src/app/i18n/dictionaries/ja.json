@@ -126,7 +126,6 @@
       "title": "会社概要",
       "Info": {
         "name": "会社名称",
-        "officialName": "正式名称",
         "address": "所在地",
         "FoundingDate": {
           "title": "設立日",
@@ -158,7 +157,13 @@
         "Date": {
           "year": "年",
           "Month": {
+            "may": "5月",
             "november": "11月"
+          }
+        },
+        "2025": {
+          "5": {
+            "relocation": "東京都渋谷区へ本店移転"
           }
         },
         "2023": {
