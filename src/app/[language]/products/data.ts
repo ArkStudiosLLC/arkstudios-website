@@ -44,9 +44,9 @@ export async function getAppInfos({
         { type: 'lifetime', value: d.BitRemote.PriceInfo.lifetime },
       ],
       platformInfos: [
-        { name: 'iOS', isSupported: true, versionDescription: '17.0+' },
-        { name: 'iPadOS', isSupported: true, versionDescription: '17.0+' },
-        { name: 'macOS', isSupported: true, versionDescription: '14.0+' },
+        { name: 'iOS', isSupported: true, versionDescription: '26.0+' },
+        { name: 'iPadOS', isSupported: true, versionDescription: '26.0+' },
+        { name: 'macOS', isSupported: true, versionDescription: '26.0+' },
         { name: 'visionOS', isSupported: false },
         { name: 'watchOS', isSupported: false },
         { name: 'tvOS', isSupported: false },
