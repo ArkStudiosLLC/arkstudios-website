@@ -8,6 +8,13 @@ import type { Viewport } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
+function validateLanguage(lang: string): Language {
+  if (i18n.languages.includes(lang as Language)) {
+    return lang as Language
+  }
+  return 'en'
+}
+
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
@@ -22,9 +29,10 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{ language: Language }>
+  params: Promise<{ language: string }>
 }) {
-  const d = await getDictionary((await params).language)
+  const language = validateLanguage((await params).language)
+  const d = await getDictionary(language)
 
   return {
     title: {
@@ -91,9 +99,9 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode
-  params: Promise<{ language: Language }>
+  params: Promise<{ language: string }>
 }) {
-  const { language } = await params
+  const language = validateLanguage((await params).language)
   return (
     <html lang={language}>
       <body className={`${inter.className} subpixel-antialiased`}>
