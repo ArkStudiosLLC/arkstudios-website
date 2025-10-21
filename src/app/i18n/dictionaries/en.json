@@ -198,7 +198,7 @@
       "subtitle": "Remote download task management app",
       "description": "BitRemote is a tool for efficiently and easily managing download tasks on your home server or NAS. Focusing on security, client login information is stored securely inside the device or in iCloud, not on our servers. Your important data is always and everywhere in your hands.\n\nUsing the latest native frameworks, BitRemote operates directly on the OS, allowing quick access to local files and stable operation in the background. In addition, we provide special features using Apple's unique frameworks.\n\nBitRemote supports a wide range of clients, making it a versatile choice for managing download tasks across various platforms.\n\nWe are committed to continuously expanding our compatibility to meet customer needs. Enhance your download task management to be smarter and safer with BitRemote.\n\n* A client refers to a download tool.\n** It is a tool for remotely controlling a client, not for downloading locally.",
       "PriceInfo": {
-        "month": "$0.99",
+        "month": "$1.99",
         "year": "$9.99",
         "lifetime": "$49.99"
       }
