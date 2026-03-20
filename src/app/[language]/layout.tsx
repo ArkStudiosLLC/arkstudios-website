@@ -1,12 +1,9 @@
 import '../globals.css'
-import { Inter } from 'next/font/google'
 
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { i18n, type Language } from '@/app/i18n/i18n-config'
 
 import type { Viewport } from 'next'
-
-const inter = Inter({ subsets: ['latin'] })
 
 function validateLanguage(lang: string): Language {
   if (i18n.languages.includes(lang as Language)) {
@@ -104,7 +101,7 @@ export default async function RootLayout({
   const language = validateLanguage((await params).language)
   return (
     <html lang={language}>
-      <body className={`${inter.className} subpixel-antialiased`}>
+      <body className="subpixel-antialiased">
         <NoScriptHiddenStyle />
         {children}
       </body>
