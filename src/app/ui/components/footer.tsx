@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Footer() {
   return (
-    <footer className='flex select-none justify-center bg-black/5 dark:bg-black/10'>
+    <footer className='flex justify-center bg-black/5 select-none dark:bg-black/10'>
       <div className='w-limited flex items-center justify-between gap-3 py-3 *:text-sm *:text-zinc-800 *:dark:text-zinc-300'>
-        <p>© 2025 Ark Studios LLC.</p>
+        <p>© 2026 Ark Studios LLC.</p>
         <div className='flex items-center justify-between gap-5 *:h-6 *:w-6 lg:gap-3 *:lg:h-5 *:lg:w-5'>
           <a href='https://twitter.com/ArkStudiosLLC'>
             <FontAwesomeIcon icon={faTwitter} />

@@ -8,7 +8,7 @@ export interface PlatformInfo {
 }
 
 export interface PriceInfo {
-  type: 'month' | 'year' | 'lifetime'
+  type: 'month' | 'year' | 'onetime'
   value: string
 }
 
@@ -41,7 +41,7 @@ export async function getAppInfos({
       priceInfos: [
         { type: 'month', value: d.BitRemote.PriceInfo.month },
         { type: 'year', value: d.BitRemote.PriceInfo.year },
-        { type: 'lifetime', value: d.BitRemote.PriceInfo.lifetime },
+        { type: 'onetime', value: d.BitRemote.PriceInfo.onetime },
       ],
       platformInfos: [
         { name: 'iOS', isSupported: true, versionDescription: '26.0+' },

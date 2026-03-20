@@ -1,7 +1,6 @@
 import {
   faCalendarDays,
   faCalendarCheck,
-  faInfinity,
   faCircleCheck,
   faCircleXmark,
   faMobile,
@@ -10,6 +9,7 @@ import {
   faVrCardboard,
   faClock,
   faTv,
+  faReceipt,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
@@ -24,7 +24,7 @@ import { AppInfo, getAppInfos, PriceInfo, PlatformInfo } from './data'
 const pathname = '/products'
 
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ language: Language }>
 }) {
@@ -84,7 +84,7 @@ async function AppCards({ language }: { language: Language }) {
     return (
       <div className='flex flex-col gap-3'>
         <SubsectionHeader title={d.title} />
-        <p className='select-text whitespace-pre-line text-xs font-light text-zinc-700 sm:text-sm dark:text-zinc-200'>
+        <p className='text-xs font-light whitespace-pre-line text-zinc-700 select-text sm:text-sm dark:text-zinc-200'>
           {content}
         </p>
       </div>
@@ -115,8 +115,8 @@ async function AppCards({ language }: { language: Language }) {
                       return d.month
                     case 'year':
                       return d.year
-                    case 'lifetime':
-                      return d.lifetime
+                    case 'onetime':
+                      return d.onetime
                   }
                 })()}
                 subtitle={info.value}
@@ -164,7 +164,7 @@ async function AppCards({ language }: { language: Language }) {
         return (
           <div
             key={appInfo.title}
-            className='flex w-full flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-3xl bg-zinc-100 p-6 transition-shadow sm:p-8 lg:p-10 lg:hover:shadow-xl dark:divide-cyan-800 dark:bg-cyan-950 lg:dark:hover:shadow-2xl *:not-first:pt-6 *:not-last:pb-6'
+            className='flex w-full flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-3xl bg-zinc-100 p-6 transition-shadow *:not-first:pt-6 *:not-last:pb-6 sm:p-8 lg:p-10 lg:hover:shadow-xl dark:divide-cyan-800 dark:bg-cyan-950 lg:dark:hover:shadow-2xl'
           >
             <SummarySection language={language} appInfo={appInfo} />
             <DescriptionSection language={language} content={appInfo.description} />
@@ -179,7 +179,7 @@ async function AppCards({ language }: { language: Language }) {
 
 function HorizontalScrollSection({ children }: { children: React.ReactNode }) {
   return (
-    <div className='hidden-scrollbar flex divide-x divide-zinc-300 overflow-x-auto dark:divide-cyan-800 *:not-first:pl-2 *:not-last:pr-2'>
+    <div className='hidden-scrollbar flex divide-x divide-zinc-300 overflow-x-auto *:not-first:pl-2 *:not-last:pr-2 dark:divide-cyan-800'>
       {children}
     </div>
   )
@@ -206,15 +206,15 @@ function IconCell({
 function PriceIcon({ info }: { info: PriceInfo }) {
   return (
     <FontAwesomeIcon
-      className='h-7 w-7'
+      className='h-7 w-auto'
       icon={(function () {
         switch (info.type) {
           case 'month':
             return faCalendarDays
           case 'year':
             return faCalendarCheck
-          case 'lifetime':
-            return faInfinity
+          case 'onetime':
+            return faReceipt
         }
       })()}
     />
@@ -243,10 +243,10 @@ function PlatformIcon({ info }: { info: PlatformInfo }) {
           }
         })()}
       />
-      <circle className='-ml-3 mt-4 h-3 w-3 rounded-full bg-white' />
+      <circle className='mt-4 -ml-3 h-3 w-3 rounded-full bg-white' />
       <FontAwesomeIcon
         icon={info.isSupported ? faCircleCheck : faCircleXmark}
-        className={`-ml-3.5 mt-3.5 h-4 w-4 ${
+        className={`mt-3.5 -ml-3.5 h-4 w-4 ${
           info.isSupported ? 'text-green-600' : 'text-zinc-500'
         }`}
       />
@@ -259,7 +259,7 @@ function SubsectionHeader({ title }: { title: string }) {
 }
 
 export default async function Page({
-  params
+  params,
 }: {
   params: Promise<{ language: Language }>
 }) {
@@ -269,8 +269,8 @@ export default async function Page({
   return (
     <div className='flex flex-col'>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex min-h-screen select-none justify-center'>
-        <div className='w-limited pb-32 pt-14 md:pt-20'>
+      <div className='mt-14 flex min-h-screen justify-center select-none'>
+        <div className='w-limited pt-14 pb-32 md:pt-20'>
           <h1 className='text-4xl font-bold'>{d.title}</h1>
           <AppCards language={language} />
         </div>

@@ -27,6 +27,11 @@ export async function getEULAItems({
     },
     {
       type: 'plain',
+      title: d.OneTimePurchasePlan.title,
+      content: d.OneTimePurchasePlan.content,
+    },
+    {
+      type: 'plain',
       title: d.EnglishVersionPrevail.title,
       content: d.EnglishVersionPrevail.content,
     },

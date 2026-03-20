@@ -76,6 +76,10 @@
         "title": "Limitation on Simultaneous Use Across Platforms",
         "content": "You are granted the ability to use the Licensed Application on an unlimited number of devices that you own or control. However, you may not simultaneously use the Licensed Application on more than three devices per Apple platform (including iOS, iPadOS, macOS, watchOS, tvOS, and visionOS). If the Application is activated on more than three devices per platform at the same time, the earliest activated device(s) will be automatically deactivated. You acknowledge and agree that this limit of simultaneous use applies separately to each Apple platform."
       },
+      "OneTimePurchasePlan": {
+        "title": "One-Time Purchase Plan",
+        "content": "BitRemote+ Advanced is a one-time purchase plan that unlocks exclusive features available in the app at the time of purchase. Continued access depends on the app remaining available and compatible with supported platforms and devices. Features and services may change or be discontinued over time."
+      },
       "EnglishVersionPrevail": {
         "title": "Precedence of the English Version",
         "content": "In the event of any discrepancies or conflicts between the English version of this Agreement and its translations, the English version shall prevail. This clause is intended to ensure clarity and avoid legal ambiguities that may arise from translation differences. You acknowledge and agree that the English version of this Agreement shall be the definitive version for interpreting the terms and conditions of use."
@@ -86,7 +90,7 @@
       },
       "PolicyChanges": {
         "title": "Changes to This EULA",
-        "content": "We may update our EULA from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new EULA on this page.\n\nThis policy is effective as of 2024-07-09."
+        "content": "We may update our EULA from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new EULA on this page.\n\nThis policy is effective as of 2024-07-09.\nLast updated: 2026-03-20."
       },
       "ContactUs": {
         "title": "Contact Us",
@@ -116,7 +120,7 @@
         },
         "Payment": {
           "title": "Payment",
-          "content": "We offer two forms of provision through the App Store and the official websites of each product: subscription and outright purchase. With the subscription model, you can use the service with regular payments. With the outright purchase model, you can use the service permanently with a one-time payment."
+          "content": "We offer two forms of provision through the App Store and the official websites of each product: subscription and outright purchase. With the subscription model, you can use the service with regular payments. With the outright purchase model, you can access the service with a one-time purchase."
         }
       }
     }
@@ -188,8 +192,8 @@
     "Price": {
       "title": "Pricing",
       "month": "Monthly",
-      "year": "Annually",
-      "lifetime": "Lifetime"
+      "year": "Yearly",
+      "onetime": "One-Time"
     },
     "Platform": {
       "title": "System requirement"
@@ -200,7 +204,7 @@
       "PriceInfo": {
         "month": "$1.99",
         "year": "$9.99",
-        "lifetime": "$49.99"
+        "onetime": "$49.99"
       }
     }
   }
