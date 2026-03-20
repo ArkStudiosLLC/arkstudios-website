@@ -11,7 +11,7 @@ function validateLanguage(lang: string): Language {
   if (i18n.languages.includes(lang as Language)) {
     return lang as Language
   }
-  return 'en'
+  return i18n.defaultLanguage
 }
 
 export const viewport: Viewport = {
