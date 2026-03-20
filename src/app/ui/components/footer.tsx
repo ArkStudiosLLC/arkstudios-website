@@ -17,23 +17,31 @@ export default async function Footer({ language }: { language: Language }) {
       <div className='w-limited flex items-center justify-between gap-3 py-3 *:text-sm *:text-zinc-800 *:dark:text-zinc-300'>
         <p>© 2026 Ark Studios LLC.</p>
         <div className='flex items-center justify-between gap-5 *:h-6 *:w-6 lg:gap-3 *:lg:h-5 *:lg:w-5'>
-          <a href='https://twitter.com/ArkStudiosLLC' aria-label={d.twitterLabel}>
+          <a
+            href='https://twitter.com/ArkStudiosLLC'
+            aria-label={d.twitterLabel}
+            className='focus-ring rounded-md'
+          >
             <FontAwesomeIcon icon={faTwitter} aria-hidden='true' />
           </a>
-          <a href='https://github.com/ArkStudiosLLC' aria-label={d.githubLabel}>
+          <a
+            href='https://github.com/ArkStudiosLLC'
+            aria-label={d.githubLabel}
+            className='focus-ring rounded-md'
+          >
             <FontAwesomeIcon icon={faGithub} aria-hidden='true' />
           </a>
           <a
             href='mailto:info@arkstudios.co.jp'
             aria-label={d.emailLabel}
-            className='block lg:hidden'
+            className='focus-ring block rounded-md lg:hidden'
           >
             <FontAwesomeIcon icon={faEnvelopeSolid} aria-hidden='true' />
           </a>
         </div>
         <a
           href='mailto:info@arkstudios.co.jp'
-          className='hidden lg:flex lg:items-center lg:gap-1.5'
+          className='focus-ring hidden rounded-md lg:flex lg:items-center lg:gap-1.5'
         >
           <FontAwesomeIcon
             icon={faEnvelopeRegular}

@@ -20,14 +20,14 @@ async function CanvasSection({ language }: { language: Language }) {
           className='h-96 rounded-3xl object-cover md:h-128 lg:h-168 2xl:h-auto'
         />
       </picture>
-      <div className='w-limited flex flex-col items-center *:text-2xl *:font-black *:whitespace-nowrap *:text-cyan-900 *:sm:text-4xl *:xl:text-5xl *:2xl:text-6xl *:dark:text-cyan-200'>
-        <p className='hidden lg:block'>{d.full}</p>
-        <p className='block text-left lg:hidden'>
+      <h1 className='w-limited flex flex-col items-center *:text-2xl *:font-black *:whitespace-nowrap *:text-cyan-900 *:sm:text-4xl *:xl:text-5xl *:2xl:text-6xl *:dark:text-cyan-200'>
+        <span className='hidden lg:block'>{d.full}</span>
+        <span className='block text-left lg:hidden'>
           {d.upper}
           <br />
           {d.lower}
-        </p>
-      </div>
+        </span>
+      </h1>
     </div>
   )
 }
@@ -35,7 +35,7 @@ async function CanvasSection({ language }: { language: Language }) {
 function SubSection({ title, content }: { title: string; content: string }) {
   return (
     <div className='flex flex-col gap-1'>
-      <p className='text-sm font-semibold sm:text-base 2xl:text-xl'>{title}</p>
+      <h4 className='text-sm font-semibold sm:text-base 2xl:text-xl'>{title}</h4>
       <p className='text-xs font-light sm:text-sm 2xl:text-base dark:text-zinc-300'>
         {content}
       </p>
@@ -48,12 +48,12 @@ async function BusinessSection({ language }: { language: Language }) {
 
   return (
     <div className='w-limited flex flex-col items-center justify-center gap-10'>
-      <p className='text-2xl font-bold sm:text-4xl 2xl:text-5xl'>{d.title}</p>
+      <h2 className='text-2xl font-bold sm:text-4xl 2xl:text-5xl'>{d.title}</h2>
       <div className='flex flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-xl bg-zinc-100 p-6 *:not-first:pt-6 *:not-last:pb-6 sm:p-10 2xl:p-12 dark:divide-cyan-800 dark:bg-cyan-950'>
         <div className='flex flex-col items-center gap-2'>
-          <p className='text-lg font-semibold sm:text-2xl 2xl:text-3xl'>
+          <h3 className='text-lg font-semibold sm:text-2xl 2xl:text-3xl'>
             {d.SoftwareDevelopment.title}
-          </p>
+          </h3>
           <p className='text-xs sm:text-sm 2xl:text-base dark:text-zinc-300'>
             {d.SoftwareDevelopment.description}
           </p>
@@ -69,10 +69,11 @@ async function BusinessSection({ language }: { language: Language }) {
           />
         </div>
         <div className='flex w-full justify-center'>
-          <a href={`/${language}/products`}>
-            <p className='rounded-xl bg-zinc-700 px-8 py-2 text-sm font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-base 2xl:text-lg dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'>
-              {d.products}
-            </p>
+          <a
+            href={`/${language}/products`}
+            className='focus-ring rounded-xl bg-zinc-700 px-8 py-2 text-sm font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-base 2xl:text-lg dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'
+          >
+            <span>{d.products}</span>
           </a>
         </div>
       </div>
@@ -89,13 +90,13 @@ export default async function Page({
   return (
     <div className='flex flex-col select-none'>
       <NavigationBar language={language} pathname={pathname} />
-      <div
+      <main
         id='main-content'
         className='mt-14 flex min-h-screen flex-col items-center divide-y divide-zinc-300 pt-8 pb-32 *:not-first:pt-32 *:not-last:pb-32 dark:divide-cyan-800'
       >
         <CanvasSection language={language} />
         <BusinessSection language={language} />
-      </div>
+      </main>
       <Footer language={language} />
     </div>
   )

@@ -47,7 +47,11 @@ async function Links({ language }: { language: Language }) {
         return (
           <div key={link.destination} className='flex'>
             <Label title='・' />
-            <a href={link.destination} aria-label={`${link.title} ${d.externalSiteSuffix}`}>
+            <a
+              href={link.destination}
+              aria-label={`${link.title} ${d.externalSiteSuffix}`}
+              className='focus-ring rounded-sm'
+            >
               <p>{link.title}</p>
             </a>
           </div>
@@ -69,7 +73,7 @@ export default async function Page({
   return (
     <div className='flex flex-col'>
       <NavigationBar language={language} pathname={pathname} />
-      <div id='main-content' className='mt-14 flex min-h-screen justify-center'>
+      <main id='main-content' className='mt-14 flex min-h-screen justify-center'>
         <div className='w-limited pt-14 pb-32 md:pt-20'>
           <div className='flex flex-col gap-10'>
             <h1 className='text-4xl font-bold'>{d.title}</h1>
@@ -88,7 +92,7 @@ export default async function Page({
             })}
           </div>
         </div>
-      </div>
+      </main>
       <Footer language={language} />
     </div>
   )

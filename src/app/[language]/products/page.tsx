@@ -56,14 +56,15 @@ async function SummarySection({
       </div>
       <div className='flex w-full flex-col items-start justify-between gap-2 sm:gap-6'>
         <div className='select-text'>
-          <p className='text-lg font-bold sm:text-2xl'>{appInfo.title}</p>
+          <h2 className='text-lg font-bold sm:text-2xl'>{appInfo.title}</h2>
           <p className='text-xs font-light sm:text-base'>{appInfo.subtitle}</p>
         </div>
         <div className='flex w-full justify-start'>
-          <a href={appInfo.websiteLink}>
-            <p className='rounded-xl bg-zinc-700 px-3 py-1.5 text-xs font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-sm dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'>
-              {d.website}
-            </p>
+          <a
+            href={appInfo.websiteLink}
+            className='focus-ring rounded-xl bg-zinc-700 px-3 py-1.5 text-xs font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-sm dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'
+          >
+            <span>{d.website}</span>
           </a>
         </div>
       </div>
@@ -167,7 +168,7 @@ async function AppCards({ language }: { language: Language }) {
     <div className='my-10'>
       {appInfos.map((appInfo) => {
         return (
-          <div
+          <article
             key={appInfo.title}
             className='flex w-full flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-3xl bg-zinc-100 p-6 transition-shadow *:not-first:pt-6 *:not-last:pb-6 sm:p-8 lg:p-10 lg:hover:shadow-xl dark:divide-cyan-800 dark:bg-cyan-950 lg:dark:hover:shadow-2xl'
           >
@@ -175,7 +176,7 @@ async function AppCards({ language }: { language: Language }) {
             <DescriptionSection language={language} content={appInfo.description} />
             <PriceSection language={language} infos={appInfo.priceInfos} />
             <PlatformSection language={language} infos={appInfo.platformInfos} />
-          </div>
+          </article>
         )
       })}
     </div>
@@ -269,7 +270,7 @@ function PlatformIcon({
 }
 
 function SubsectionHeader({ title }: { title: string }) {
-  return <p className='text-base font-semibold sm:text-lg'>{title}</p>
+  return <h3 className='text-base font-semibold sm:text-lg'>{title}</h3>
 }
 
 export default async function Page({
@@ -283,7 +284,7 @@ export default async function Page({
   return (
     <div className='flex flex-col'>
       <NavigationBar language={language} pathname={pathname} />
-      <div
+      <main
         id='main-content'
         className='mt-14 flex min-h-screen justify-center select-none'
       >
@@ -291,7 +292,7 @@ export default async function Page({
           <h1 className='text-4xl font-bold'>{d.title}</h1>
           <AppCards language={language} />
         </div>
-      </div>
+      </main>
       <Footer language={language} />
     </div>
   )
