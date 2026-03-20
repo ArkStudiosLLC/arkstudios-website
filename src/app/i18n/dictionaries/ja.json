@@ -100,7 +100,8 @@
   },
   "NavigationBar": {
     "company": "会社情報",
-    "products": "製品紹介"
+    "products": "製品紹介",
+    "switchLanguage": "Switch to English"
   },
   "Home": {
     "Slogan": {
