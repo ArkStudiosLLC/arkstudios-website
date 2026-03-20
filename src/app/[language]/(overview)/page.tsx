@@ -14,7 +14,7 @@ async function CanvasSection({ language }: { language: Language }) {
         <source srcSet='/images/Ark.webp' type='image/webp'></source>
         <img
           src='/images/Ark.jpg'
-          alt='Ark and sea'
+          alt={d.imageAlt}
           loading='lazy'
           decoding='async'
           className='h-96 rounded-3xl object-cover md:h-128 lg:h-168 2xl:h-auto'
@@ -93,7 +93,7 @@ export default async function Page({
         <CanvasSection language={language} />
         <BusinessSection language={language} />
       </div>
-      <Footer />
+      <Footer language={language} />
     </div>
   )
 }

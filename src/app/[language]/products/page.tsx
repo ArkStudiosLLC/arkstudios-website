@@ -144,7 +144,12 @@ async function PlatformSection({
           return (
             <IconCell
               key={info.name}
-              icon={<PlatformIcon info={info} />}
+              icon={
+                <PlatformIcon
+                  info={info}
+                  supportLabel={info.isSupported ? d.supported : d.unsupported}
+                />
+              }
               title={info.name}
               subtitle={info.versionDescription || 'N/A'}
             />
@@ -207,6 +212,7 @@ function PriceIcon({ info }: { info: PriceInfo }) {
   return (
     <FontAwesomeIcon
       className='h-7 w-auto'
+      aria-hidden='true'
       icon={(function () {
         switch (info.type) {
           case 'month':
@@ -221,11 +227,18 @@ function PriceIcon({ info }: { info: PriceInfo }) {
   )
 }
 
-function PlatformIcon({ info }: { info: PlatformInfo }) {
+function PlatformIcon({
+  info,
+  supportLabel,
+}: {
+  info: PlatformInfo
+  supportLabel: string
+}) {
   return (
-    <div className='flex'>
+    <div className='flex' role='img' aria-label={`${info.name}: ${supportLabel}`}>
       <FontAwesomeIcon
         className='h-7 w-7'
+        aria-hidden='true'
         icon={(function () {
           switch (info.name) {
             case 'iOS':
@@ -243,9 +256,10 @@ function PlatformIcon({ info }: { info: PlatformInfo }) {
           }
         })()}
       />
-      <div className='mt-4 -ml-3 h-3 w-3 rounded-full bg-white' />
+      <div className='mt-4 -ml-3 h-3 w-3 rounded-full bg-white' aria-hidden='true' />
       <FontAwesomeIcon
         icon={info.isSupported ? faCircleCheck : faCircleXmark}
+        aria-hidden='true'
         className={`mt-3.5 -ml-3.5 h-4 w-4 ${
           info.isSupported ? 'text-green-600' : 'text-zinc-500'
         }`}
@@ -275,7 +289,7 @@ export default async function Page({
           <AppCards language={language} />
         </div>
       </div>
-      <Footer />
+      <Footer language={language} />
     </div>
   )
 }

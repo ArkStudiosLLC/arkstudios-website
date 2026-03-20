@@ -35,7 +35,8 @@ function Label({ title }: { title: string }) {
   )
 }
 
-function Links() {
+async function Links({ language }: { language: Language }) {
+  const d = (await getDictionary(language)).Accessibility
   const links = [
     { title: 'AdMob', destination: 'https://support.google.com/admob/answer/6128543' },
     { title: 'Firebase', destination: 'https://firebase.google.com/support/privacy' },
@@ -46,7 +47,7 @@ function Links() {
         return (
           <div key={link.destination} className='flex'>
             <Label title='・' />
-            <a href={link.destination}>
+            <a href={link.destination} aria-label={`${link.title} ${d.externalSiteSuffix}`}>
               <p>{link.title}</p>
             </a>
           </div>
@@ -79,14 +80,16 @@ export default async function Page({
                 <Subsection key={key} title={policyItem.title}>
                   <Label title={policyItem.content} />
 
-                  {policyItem.type === 'informationCollection' && <Links />}
+                  {policyItem.type === 'informationCollection' && (
+                    <Links language={language} />
+                  )}
                 </Subsection>
               )
             })}
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer language={language} />
     </div>
   )
 }

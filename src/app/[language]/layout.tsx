@@ -36,8 +36,22 @@ export async function generateMetadata({
       template: '%s | Ark Studios',
       default: 'Ark Studios',
     },
+    applicationName: 'Ark Studios',
     description: d.Metadata.Template.description,
     metadataBase: new URL('https://arkstudios.co.jp'),
+    openGraph: {
+      type: 'website',
+      siteName: 'Ark Studios',
+      title: 'Ark Studios',
+      description: d.Metadata.Template.description,
+      locale: language === 'ja' ? 'ja_JP' : 'en_US',
+      alternateLocale: language === 'ja' ? 'en_US' : 'ja_JP',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Ark Studios',
+      description: d.Metadata.Template.description,
+    },
     icons: {
       icon: '/images/favicons/favicon.ico',
       shortcut: '/images/favicons/favicon.ico',

@@ -77,11 +77,13 @@ function LanguageToggle({
   pathname,
   variant = 'icon',
   label,
+  ariaLabel,
 }: {
   language: Language
   pathname: string
   variant?: 'icon' | 'row'
   label?: string
+  ariaLabel?: string
 }) {
   const targetLanguage = (function () {
     switch (language) {
@@ -97,6 +99,7 @@ function LanguageToggle({
     return (
       <a
         href={`/${targetLanguage}${pathname}`}
+        aria-label={ariaLabel}
         className='flex items-center justify-end gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:hover:bg-white/8 dark:active:bg-white/12'
       >
         <LanguageIcon />
@@ -108,7 +111,7 @@ function LanguageToggle({
   }
 
   return (
-    <a href={`/${targetLanguage}${pathname}`}>
+    <a href={`/${targetLanguage}${pathname}`} aria-label={ariaLabel}>
       <div
         className={`${navSurfaceSoftClass} h-10 w-10 rounded-xl p-2 text-zinc-700 transition-colors hover:bg-zinc-200/90 active:bg-zinc-300/90 dark:text-white dark:hover:bg-cyan-800/90 dark:active:bg-cyan-950/90`}
       >
@@ -129,7 +132,10 @@ export default async function NavigationBar({
   const d = (await getDictionary(language)).NavigationBar
 
   return (
-    <nav className='fixed top-0 z-10 w-full text-zinc-900 select-none dark:text-white'>
+    <nav
+      aria-label={d.primaryLabel}
+      className='fixed top-0 z-10 w-full text-zinc-900 select-none dark:text-white'
+    >
       <div className={`${navSurfaceClass}`}>
         <input type='checkbox' id='mobile-menu' className='peer hidden' />
 
@@ -143,17 +149,22 @@ export default async function NavigationBar({
 
               <label
                 htmlFor='mobile-menu'
+                aria-label={d.openMenu}
                 className='relative flex cursor-pointer md:hidden'
               >
                 <div
                   className={`${navSurfaceSoftClass} flex h-10 w-10 items-center justify-center rounded-xl text-zinc-700 transition-colors hover:bg-zinc-200/90 active:bg-zinc-300/90 dark:text-white dark:hover:bg-cyan-800/90 dark:active:bg-cyan-950/90`}
                 >
-                  <FontAwesomeIcon icon={faBars} className='h-5 w-5' />
+                  <FontAwesomeIcon icon={faBars} className='h-5 w-5' aria-hidden='true' />
                 </div>
               </label>
 
               <div className='hidden md:block'>
-                <LanguageToggle language={language} pathname={pathname} />
+                <LanguageToggle
+                  language={language}
+                  pathname={pathname}
+                  ariaLabel={d.switchLanguage}
+                />
               </div>
             </div>
           </div>
@@ -182,6 +193,7 @@ export default async function NavigationBar({
                   pathname={pathname}
                   variant='row'
                   label={d.switchLanguage}
+                  ariaLabel={d.switchLanguage}
                 />
               </div>
             </div>

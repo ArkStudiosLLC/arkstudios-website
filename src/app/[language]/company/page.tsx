@@ -18,7 +18,9 @@ export async function generateMetadata({
 }
 
 async function SummarySection({ language }: { language: Language }) {
-  const d = (await getDictionary(language)).Company.Summary
+  const dictionary = await getDictionary(language)
+  const d = dictionary.Company.Summary
+  const a11y = dictionary.Accessibility
   const summaryInfos = await getSummaryInfos({ language })
 
   return (
@@ -46,6 +48,7 @@ async function SummarySection({ language }: { language: Language }) {
                 <div className='my-4 h-96 w-auto rounded-xl bg-zinc-200 p-2 lg:w-3/4 dark:bg-cyan-900 noscript:hidden'>
                   <iframe
                     src={`https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12959.085206037993!2d139.8305953!3d35.7072451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889b6778839b5%3A0xd022b00527a97c74!2sArk%20Studios!5e0!3m2!1sja!2sjp!4v1705495236118!5m2!1s${language}!2sjp`}
+                    title={a11y.companyMapLabel}
                     allowFullScreen
                     loading='lazy'
                     referrerPolicy='no-referrer-when-downgrade'
@@ -147,7 +150,7 @@ export default async function Page({
           <HistorySection language={language} />
         </div>
       </div>
-      <Footer />
+      <Footer language={language} />
     </div>
   )
 }

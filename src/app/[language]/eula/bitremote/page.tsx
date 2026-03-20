@@ -62,7 +62,7 @@ export default async function Page({
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer language={language} />
     </div>
   )
 }
