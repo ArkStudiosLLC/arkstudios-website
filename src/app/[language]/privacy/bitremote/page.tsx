@@ -78,17 +78,7 @@ export default async function Page({
                 <Subsection key={key} title={policyItem.title}>
                   <Label title={policyItem.content} />
 
-                  <>
-                    {(() => {
-                      switch (policyItem.type) {
-                        case 'plain':
-                          return <></>
-
-                        case 'informationCollection':
-                          return <Links />
-                      }
-                    })()}
-                  </>
+                  {policyItem.type === 'informationCollection' && <Links />}
                 </Subsection>
               )
             })}
