@@ -125,12 +125,12 @@ export default async function NavigationBar({
   const d = (await getDictionary(language)).NavigationBar
 
   return (
-    <nav className='fixed top-0 z-10 w-full select-none text-white'>
+    <nav className='fixed top-0 z-10 w-full text-white select-none'>
       <div className={`${navSurfaceClass}`}>
         <input type='checkbox' id='mobile-menu' className='peer hidden' />
 
         <div className='flex justify-center'>
-          <div className='flex w-[92%] items-center justify-between py-3 sm:w-[90%] md:w-[88%] lg:w-[84%] xl:w-[80%] 2xl:w-[72rem]'>
+          <div className='flex w-[92%] items-center justify-between py-3 sm:w-[90%] md:w-[88%] lg:w-[84%] xl:w-[80%] 2xl:w-6xl'>
             <Logo language={language} />
             <div className='flex items-center gap-5'>
               <div className='hidden md:block'>
@@ -166,9 +166,7 @@ export default async function NavigationBar({
                       href={link.destination}
                       className='rounded-xl px-3 py-2.5 text-right transition-colors hover:bg-white/8 active:bg-white/12'
                     >
-                      <p className='text-base font-light text-white'>
-                        {link.name}
-                      </p>
+                      <p className='text-base font-light text-white'>{link.name}</p>
                     </a>
                   )
                 })}

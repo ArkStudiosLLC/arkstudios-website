@@ -1,11 +1,13 @@
 import React from 'react'
 
+
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Language } from '@/app/i18n/i18n-config'
 import Footer from '@/app/ui/components/footer'
 import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { getSummaryInfos, getHistoryInfos } from './data'
+
 
 const pathname = '/company'
 

@@ -32,18 +32,18 @@ async function CanvasSection({ language }: { language: Language }) {
   )
 }
 
-async function BusinessSection({ language }: { language: Language }) {
-  function SubSection({ title, content }: { title: string; content: string }) {
-    return (
-      <div className='flex flex-col gap-1'>
-        <p className='text-sm font-semibold sm:text-base 2xl:text-xl'>{title}</p>
-        <p className='text-xs font-light sm:text-sm 2xl:text-base dark:text-zinc-300'>
-          {content}
-        </p>
-      </div>
-    )
-  }
+function SubSection({ title, content }: { title: string; content: string }) {
+  return (
+    <div className='flex flex-col gap-1'>
+      <p className='text-sm font-semibold sm:text-base 2xl:text-xl'>{title}</p>
+      <p className='text-xs font-light sm:text-sm 2xl:text-base dark:text-zinc-300'>
+        {content}
+      </p>
+    </div>
+  )
+}
 
+async function BusinessSection({ language }: { language: Language }) {
   const d = (await getDictionary(language)).Home.Business
 
   return (
