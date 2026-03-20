@@ -20,7 +20,7 @@ async function CanvasSection({ language }: { language: Language }) {
           className='h-96 rounded-3xl object-cover md:h-128 lg:h-168 2xl:h-auto'
         />
       </picture>
-      <div className='w-limited flex flex-col items-center *:whitespace-nowrap *:text-2xl *:font-black *:text-cyan-900 *:sm:text-4xl *:xl:text-5xl *:2xl:text-6xl *:dark:text-cyan-200'>
+      <div className='w-limited flex flex-col items-center *:text-2xl *:font-black *:whitespace-nowrap *:text-cyan-900 *:sm:text-4xl *:xl:text-5xl *:2xl:text-6xl *:dark:text-cyan-200'>
         <p className='hidden lg:block'>{d.full}</p>
         <p className='block text-left lg:hidden'>
           {d.upper}
@@ -49,7 +49,7 @@ async function BusinessSection({ language }: { language: Language }) {
   return (
     <div className='w-limited flex flex-col items-center justify-center gap-10'>
       <p className='text-2xl font-bold sm:text-4xl 2xl:text-5xl'>{d.title}</p>
-      <div className='flex flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-xl bg-zinc-100 p-6 sm:p-10 2xl:p-12 dark:divide-cyan-800 dark:bg-cyan-950 *:not-first:pt-6 *:not-last:pb-6'>
+      <div className='flex flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-xl bg-zinc-100 p-6 *:not-first:pt-6 *:not-last:pb-6 sm:p-10 2xl:p-12 dark:divide-cyan-800 dark:bg-cyan-950'>
         <div className='flex flex-col items-center gap-2'>
           <p className='text-lg font-semibold sm:text-2xl 2xl:text-3xl'>
             {d.SoftwareDevelopment.title}
@@ -81,15 +81,15 @@ async function BusinessSection({ language }: { language: Language }) {
 }
 
 export default async function Page({
-  params
+  params,
 }: {
   params: Promise<{ language: Language }>
 }) {
   const { language } = await params
   return (
-    <div className='flex select-none flex-col'>
+    <div className='flex flex-col select-none'>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex min-h-screen flex-col items-center divide-y divide-zinc-300 pb-32 pt-8 dark:divide-cyan-800 *:not-first:pt-32 *:not-last:pb-32'>
+      <div className='mt-14 flex min-h-screen flex-col items-center divide-y divide-zinc-300 pt-8 pb-32 *:not-first:pt-32 *:not-last:pb-32 dark:divide-cyan-800'>
         <CanvasSection language={language} />
         <BusinessSection language={language} />
       </div>

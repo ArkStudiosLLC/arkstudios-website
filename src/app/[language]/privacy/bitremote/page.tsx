@@ -1,4 +1,3 @@
-
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Language } from '@/app/i18n/i18n-config'
 import Footer from '@/app/ui/components/footer'
@@ -6,15 +5,17 @@ import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { getPrivacyPolicyItems } from './data'
 
-
 const pathname = '/privacy/bitremote'
 
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ language: Language }>
 }) {
-  return { title: (await getDictionary((await params).language)).Metadata.PrivacyPolicy.BitRemote.title }
+  return {
+    title: (await getDictionary((await params).language)).Metadata.PrivacyPolicy.BitRemote
+      .title,
+  }
 }
 
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
@@ -28,7 +29,7 @@ function Subsection({ title, children }: { title: string; children: React.ReactN
 
 function Label({ title }: { title: string }) {
   return (
-    <p className='whitespace-pre-line font-light text-zinc-700 dark:text-zinc-300'>
+    <p className='font-light whitespace-pre-line text-zinc-700 dark:text-zinc-300'>
       {title}
     </p>
   )
@@ -56,7 +57,7 @@ function Links() {
 }
 
 export default async function Page({
-  params
+  params,
 }: {
   params: Promise<{ language: Language }>
 }) {
@@ -68,7 +69,7 @@ export default async function Page({
     <div className='flex flex-col'>
       <NavigationBar language={language} pathname={pathname} />
       <div className='mt-14 flex min-h-screen justify-center'>
-        <div className='w-limited pb-32 pt-14 md:pt-20'>
+        <div className='w-limited pt-14 pb-32 md:pt-20'>
           <div className='flex flex-col gap-10'>
             <h1 className='text-4xl font-bold'>{d.title}</h1>
 

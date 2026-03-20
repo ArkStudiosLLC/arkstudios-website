@@ -1,11 +1,9 @@
 import '../globals.css'
 
-
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { i18n, type Language } from '@/app/i18n/i18n-config'
 
 import type { Viewport } from 'next'
-
 
 function validateLanguage(lang: string): Language {
   if (i18n.languages.includes(lang as Language)) {
@@ -26,7 +24,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ language: string }>
 }) {
@@ -103,7 +101,7 @@ export default async function RootLayout({
   const language = validateLanguage((await params).language)
   return (
     <html lang={language}>
-      <body className="subpixel-antialiased">
+      <body className='subpixel-antialiased'>
         <NoScriptHiddenStyle />
         {children}
       </body>
