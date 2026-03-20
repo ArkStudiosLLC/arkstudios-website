@@ -4,7 +4,7 @@ This file provides guidance to agents when working with code in this repository.
 
 ## Project Overview
 
-This is the Ark Studios corporate website (https://arkstudios.co.jp), built with Next.js 15 using static site generation (SSG). The site is deployed to GitHub Pages and supports Japanese (default) and English locales.
+This is the Ark Studios corporate website (https://arkstudios.co.jp), built with Next.js 16 using static site generation (SSG). The site is deployed to GitHub Pages and supports Japanese (default) and English locales.
 
 ## Development Commands
 
@@ -97,11 +97,13 @@ export async function getAppInfos({ language }: { language: Language }): Promise
 
 - **Path alias**: `@/*` maps to `src/*` for imports
 - **Strict mode**: Enabled
-- **Module resolution**: `bundler` (for Next.js 13+ App Router)
+- **Module resolution**: `bundler` (for Next.js App Router)
 
 ## Code Standards
 
 ### ESLint Configuration
+
+Uses ESLint 9 flat config (`eslint.config.mjs`) with `eslint-config-next` and `eslint-config-prettier`.
 
 Enforces strict import ordering:
 1. Built-in Node modules
