@@ -89,7 +89,10 @@ export default async function Page({
   return (
     <div className='flex flex-col select-none'>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex min-h-screen flex-col items-center divide-y divide-zinc-300 pt-8 pb-32 *:not-first:pt-32 *:not-last:pb-32 dark:divide-cyan-800'>
+      <div
+        id='main-content'
+        className='mt-14 flex min-h-screen flex-col items-center divide-y divide-zinc-300 pt-8 pb-32 *:not-first:pt-32 *:not-last:pb-32 dark:divide-cyan-800'
+      >
         <CanvasSection language={language} />
         <BusinessSection language={language} />
       </div>

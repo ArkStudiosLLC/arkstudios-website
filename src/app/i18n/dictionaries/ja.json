@@ -223,6 +223,7 @@
     "emailLabel": "Ark Studios にメールを送る"
   },
   "Accessibility": {
+    "skipToMain": "メインコンテンツへスキップ",
     "externalSiteSuffix": "（外部サイト）",
     "companyMapLabel": "Ark Studios の所在地を示す地図"
   }

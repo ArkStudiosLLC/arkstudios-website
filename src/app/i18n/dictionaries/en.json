@@ -223,6 +223,7 @@
     "emailLabel": "Email Ark Studios"
   },
   "Accessibility": {
+    "skipToMain": "Skip to main content",
     "externalSiteSuffix": "(external site)",
     "companyMapLabel": "Map showing the Ark Studios office location"
   }

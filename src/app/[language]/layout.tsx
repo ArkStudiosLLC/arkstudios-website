@@ -113,10 +113,18 @@ export default async function RootLayout({
   params: Promise<{ language: string }>
 }) {
   const language = validateLanguage((await params).language)
+  const d = await getDictionary(language)
+
   return (
     <html lang={language}>
       <body className='subpixel-antialiased'>
         <NoScriptHiddenStyle />
+        <a
+          href='#main-content'
+          className='sr-only fixed top-4 left-4 z-50 rounded-lg bg-white px-4 py-2 text-sm font-medium text-zinc-900 shadow-lg focus:not-sr-only dark:bg-cyan-900 dark:text-white'
+        >
+          {d.Accessibility.skipToMain}
+        </a>
         {children}
       </body>
     </html>

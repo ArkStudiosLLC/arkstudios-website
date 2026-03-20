@@ -283,7 +283,10 @@ export default async function Page({
   return (
     <div className='flex flex-col'>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex min-h-screen justify-center select-none'>
+      <div
+        id='main-content'
+        className='mt-14 flex min-h-screen justify-center select-none'
+      >
         <div className='w-limited pt-14 pb-32 md:pt-20'>
           <h1 className='text-4xl font-bold'>{d.title}</h1>
           <AppCards language={language} />

@@ -144,7 +144,7 @@ export default async function Page({
   return (
     <div>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex min-h-screen flex-col items-center'>
+      <div id='main-content' className='mt-14 flex min-h-screen flex-col items-center'>
         <div className='w-limited flex flex-col items-center justify-center divide-y divide-zinc-300 pt-14 pb-32 *:w-full *:not-first:pt-20 *:not-last:pb-20 md:pt-20 dark:divide-cyan-900'>
           <SummarySection language={language} />
           <HistorySection language={language} />
