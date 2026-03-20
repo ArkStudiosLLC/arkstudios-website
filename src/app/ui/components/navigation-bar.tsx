@@ -5,10 +5,10 @@ import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Language } from '@/app/i18n/i18n-config'
 
 const navSurfaceClass =
-  'border-b border-white/15 bg-cyan-950/75 shadow-[0_18px_48px_-30px_rgba(8,47,73,0.9)] backdrop-blur-xl'
+  'border-b border-zinc-200 bg-white/75 shadow-sm backdrop-blur-xl dark:border-white/15 dark:bg-cyan-950/75 dark:shadow-[0_18px_48px_-30px_rgba(8,47,73,0.9)]'
 
 const navSurfaceSoftClass =
-  'border border-white/12 bg-cyan-900/70 shadow-[0_18px_42px_-28px_rgba(8,47,73,0.95)] backdrop-blur-xl'
+  'border border-zinc-200 bg-zinc-100/70 backdrop-blur-xl dark:border-white/12 dark:bg-cyan-900/70 dark:shadow-[0_18px_42px_-28px_rgba(8,47,73,0.95)]'
 
 async function getLinks({ language }: { language: Language }) {
   const d = (await getDictionary(language)).NavigationBar
@@ -22,8 +22,10 @@ async function getLinks({ language }: { language: Language }) {
 function Logo({ language }: { language: Language }) {
   return (
     <a href={`/${language}`}>
-      <p className='flex items-baseline gap-1 text-xl font-semibold text-white'>
-        <span className='rounded-md bg-cyan-800 px-1 py-0.5 text-white'>Ark</span>
+      <p className='flex items-baseline gap-1 text-xl font-semibold text-zinc-900 dark:text-white'>
+        <span className='rounded-md bg-cyan-800 px-1 py-0.5 text-white'>
+          Ark
+        </span>
         Studios
       </p>
     </a>
@@ -38,7 +40,7 @@ async function Links({ language }: { language: Language }) {
       {links.map((link) => {
         return (
           <a key={link.name} href={link.destination}>
-            <p className='font-light text-white transition-colors hover:text-cyan-100 active:text-cyan-200'>
+            <p className='font-light text-zinc-700 transition-colors hover:text-zinc-900 active:text-zinc-500 dark:text-white dark:hover:text-cyan-100 dark:active:text-cyan-200'>
               {link.name}
             </p>
           </a>
@@ -95,10 +97,12 @@ function LanguageToggle({
     return (
       <a
         href={`/${targetLanguage}${pathname}`}
-        className='flex items-center justify-end gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-white/8 active:bg-white/12'
+        className='flex items-center justify-end gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:hover:bg-white/8 dark:active:bg-white/12'
       >
         <LanguageIcon />
-        <p className='text-base font-light text-white'>{label}</p>
+        <p className='text-base font-light text-zinc-700 dark:text-white'>
+          {label}
+        </p>
       </a>
     )
   }
@@ -106,7 +110,7 @@ function LanguageToggle({
   return (
     <a href={`/${targetLanguage}${pathname}`}>
       <div
-        className={`${navSurfaceSoftClass} h-10 w-10 rounded-xl p-2 text-white transition-colors hover:bg-cyan-800/90 active:bg-cyan-950/90`}
+        className={`${navSurfaceSoftClass} h-10 w-10 rounded-xl p-2 text-zinc-700 transition-colors hover:bg-zinc-200/90 active:bg-zinc-300/90 dark:text-white dark:hover:bg-cyan-800/90 dark:active:bg-cyan-950/90`}
       >
         <LanguageIcon />
       </div>
@@ -125,12 +129,12 @@ export default async function NavigationBar({
   const d = (await getDictionary(language)).NavigationBar
 
   return (
-    <nav className='fixed top-0 z-10 w-full select-none text-white'>
+    <nav className='fixed top-0 z-10 w-full text-zinc-900 select-none dark:text-white'>
       <div className={`${navSurfaceClass}`}>
         <input type='checkbox' id='mobile-menu' className='peer hidden' />
 
         <div className='flex justify-center'>
-          <div className='flex w-[92%] items-center justify-between py-3 sm:w-[90%] md:w-[88%] lg:w-[84%] xl:w-[80%] 2xl:w-[72rem]'>
+          <div className='flex w-[92%] items-center justify-between py-3 sm:w-[90%] md:w-[88%] lg:w-[84%] xl:w-[80%] 2xl:w-6xl'>
             <Logo language={language} />
             <div className='flex items-center gap-5'>
               <div className='hidden md:block'>
@@ -142,7 +146,7 @@ export default async function NavigationBar({
                 className='relative flex cursor-pointer md:hidden'
               >
                 <div
-                  className={`${navSurfaceSoftClass} flex h-10 w-10 items-center justify-center rounded-xl text-white transition-colors hover:bg-cyan-800/90 active:bg-cyan-950/90`}
+                  className={`${navSurfaceSoftClass} flex h-10 w-10 items-center justify-center rounded-xl text-zinc-700 transition-colors hover:bg-zinc-200/90 active:bg-zinc-300/90 dark:text-white dark:hover:bg-cyan-800/90 dark:active:bg-cyan-950/90`}
                 >
                   <FontAwesomeIcon icon={faBars} className='h-5 w-5' />
                 </div>
@@ -157,22 +161,22 @@ export default async function NavigationBar({
 
         <div className='grid grid-rows-[0fr] transition-[grid-template-rows] duration-200 ease-out peer-checked:grid-rows-[1fr] md:hidden'>
           <div className='overflow-hidden'>
-            <div className='flex justify-center border-t border-white/10'>
+            <div className='flex justify-center border-t border-zinc-200 dark:border-white/10'>
               <div className='flex w-[92%] flex-col gap-1 py-3 sm:w-[90%]'>
                 {links.map((link) => {
                   return (
                     <a
                       key={link.name}
                       href={link.destination}
-                      className='rounded-xl px-3 py-2.5 text-right transition-colors hover:bg-white/8 active:bg-white/12'
+                      className='rounded-xl px-3 py-2.5 text-right transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:hover:bg-white/8 dark:active:bg-white/12'
                     >
-                      <p className='text-base font-light text-white'>
+                      <p className='text-base font-light text-zinc-700 dark:text-white'>
                         {link.name}
                       </p>
                     </a>
                   )
                 })}
-                <div className='my-1 w-full border-t border-white/8' />
+                <div className='my-1 w-full border-t border-zinc-200 dark:border-white/8' />
                 <LanguageToggle
                   language={language}
                   pathname={pathname}

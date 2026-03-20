@@ -10,7 +10,7 @@ import { getSummaryInfos, getHistoryInfos } from './data'
 const pathname = '/company'
 
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ language: Language }>
 }) {
@@ -43,7 +43,7 @@ async function SummarySection({ language }: { language: Language }) {
                     return <Label key={content}>{content}</Label>
                   })}
                 </address>
-                <div className='noscript:hidden my-4 h-96 w-auto rounded-xl bg-zinc-200 p-2 lg:w-3/4 dark:bg-cyan-900'>
+                <div className='my-4 h-96 w-auto rounded-xl bg-zinc-200 p-2 lg:w-3/4 dark:bg-cyan-900 noscript:hidden'>
                   <iframe
                     src={`https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12959.085206037993!2d139.8305953!3d35.7072451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889b6778839b5%3A0xd022b00527a97c74!2sArk%20Studios!5e0!3m2!1sja!2sjp!4v1705495236118!5m2!1s${language}!2sjp`}
                     allowFullScreen
@@ -74,7 +74,7 @@ async function HistorySection({ language }: { language: Language }) {
               case 'year':
                 return (
                   <tr key={key}>
-                    <td className='whitespace-nowrap text-nowrap text-2xl font-semibold'>
+                    <td className='text-2xl font-semibold text-nowrap whitespace-nowrap'>
                       {historyInfo.time}
                     </td>
                     <td></td>
@@ -84,7 +84,7 @@ async function HistorySection({ language }: { language: Language }) {
               case 'month':
                 return (
                   <tr key={key} className='align-baseline'>
-                    <td className='whitespace-nowrap text-nowrap font-medium'>
+                    <td className='font-medium text-nowrap whitespace-nowrap'>
                       {historyInfo.time}
                     </td>
                     <td className='h-8'>
@@ -133,7 +133,7 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 export default async function Page({
-  params
+  params,
 }: {
   params: Promise<{ language: Language }>
 }) {
@@ -142,7 +142,7 @@ export default async function Page({
     <div>
       <NavigationBar language={language} pathname={pathname} />
       <div className='mt-14 flex min-h-screen flex-col items-center'>
-        <div className='w-limited flex flex-col items-center justify-center divide-y divide-zinc-300 pb-32 pt-14 *:w-full md:pt-20 dark:divide-cyan-900 *:not-first:pt-20 *:not-last:pb-20'>
+        <div className='w-limited flex flex-col items-center justify-center divide-y divide-zinc-300 pt-14 pb-32 *:w-full *:not-first:pt-20 *:not-last:pb-20 md:pt-20 dark:divide-cyan-900'>
           <SummarySection language={language} />
           <HistorySection language={language} />
         </div>

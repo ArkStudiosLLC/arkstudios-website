@@ -9,7 +9,7 @@ function validateLanguage(lang: string): Language {
   if (i18n.languages.includes(lang as Language)) {
     return lang as Language
   }
-  return 'en'
+  return i18n.defaultLanguage
 }
 
 export const viewport: Viewport = {
@@ -24,7 +24,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ language: string }>
 }) {
@@ -101,7 +101,7 @@ export default async function RootLayout({
   const language = validateLanguage((await params).language)
   return (
     <html lang={language}>
-      <body className="subpixel-antialiased">
+      <body className='subpixel-antialiased'>
         <NoScriptHiddenStyle />
         {children}
       </body>
