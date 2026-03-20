@@ -100,7 +100,8 @@
   },
   "NavigationBar": {
     "company": "Company",
-    "products": "Products"
+    "products": "Products",
+    "switchLanguage": "日本語に切り替え"
   },
   "Home": {
     "Slogan": {
