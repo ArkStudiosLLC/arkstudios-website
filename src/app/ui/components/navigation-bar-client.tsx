@@ -2,8 +2,14 @@
 
 import { useState } from 'react'
 
+import { config } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+// Prevent FontAwesome from injecting its CSS at runtime. Client components
+// trigger an unlayered <style> insertion whose `height: 1em` overrides
+// Tailwind's layered size utilities (h-7, *:h-6, etc.), shrinking every icon.
+config.autoAddCss = false
 
 import { type Language } from '@/app/i18n/i18n-config'
 
