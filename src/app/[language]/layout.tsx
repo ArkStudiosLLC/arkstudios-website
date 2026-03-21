@@ -36,8 +36,22 @@ export async function generateMetadata({
       template: '%s | Ark Studios',
       default: 'Ark Studios',
     },
+    applicationName: 'Ark Studios',
     description: d.Metadata.Template.description,
     metadataBase: new URL('https://arkstudios.co.jp'),
+    openGraph: {
+      type: 'website',
+      siteName: 'Ark Studios',
+      title: 'Ark Studios',
+      description: d.Metadata.Template.description,
+      locale: language === 'ja' ? 'ja_JP' : 'en_US',
+      alternateLocale: language === 'ja' ? 'en_US' : 'ja_JP',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Ark Studios',
+      description: d.Metadata.Template.description,
+    },
     icons: {
       icon: '/images/favicons/favicon.ico',
       shortcut: '/images/favicons/favicon.ico',
@@ -99,10 +113,18 @@ export default async function RootLayout({
   params: Promise<{ language: string }>
 }) {
   const language = validateLanguage((await params).language)
+  const d = await getDictionary(language)
+
   return (
     <html lang={language}>
       <body className='subpixel-antialiased'>
         <NoScriptHiddenStyle />
+        <a
+          href='#main-content'
+          className='sr-only fixed top-4 left-4 z-50 rounded-lg bg-white px-4 py-2 text-sm font-medium text-zinc-900 shadow-lg focus:not-sr-only dark:bg-cyan-900 dark:text-white'
+        >
+          {d.Accessibility.skipToMain}
+        </a>
         {children}
       </body>
     </html>

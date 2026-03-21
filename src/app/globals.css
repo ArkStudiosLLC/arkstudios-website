@@ -34,6 +34,10 @@
 }
 
 @layer components {
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-cyan-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none dark:focus-visible:ring-cyan-300 dark:focus-visible:ring-offset-cyan-950;
+  }
+
   .w-limited {
     @apply w-5/6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-5xl;
   }

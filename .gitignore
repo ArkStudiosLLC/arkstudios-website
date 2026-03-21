@@ -131,3 +131,6 @@ dist
 
 # macOS
 .DS_Store
+
+# Agents
+.claude/launch.json

@@ -17,12 +17,20 @@ export async function generateMetadata({
   return { title: (await getDictionary((await params).language)).Metadata.Company.title }
 }
 
-async function SummarySection({ language }: { language: Language }) {
-  const d = (await getDictionary(language)).Company.Summary
+async function SummarySection({
+  headingTag: HeadingTag,
+  language,
+}: {
+  headingTag: 'h1' | 'h2'
+  language: Language
+}) {
+  const dictionary = await getDictionary(language)
+  const d = dictionary.Company.Summary
+  const a11y = dictionary.Accessibility
   const summaryInfos = await getSummaryInfos({ language })
 
   return (
-    <Section title={d.title}>
+    <Section headingTag={HeadingTag} title={d.title}>
       {summaryInfos.map((summaryInfo) => {
         const key = summaryInfo.type + summaryInfo.title + summaryInfo.contents.length
         switch (summaryInfo.type) {
@@ -46,6 +54,7 @@ async function SummarySection({ language }: { language: Language }) {
                 <div className='my-4 h-96 w-auto rounded-xl bg-zinc-200 p-2 lg:w-3/4 dark:bg-cyan-900 noscript:hidden'>
                   <iframe
                     src={`https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12959.085206037993!2d139.8305953!3d35.7072451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889b6778839b5%3A0xd022b00527a97c74!2sArk%20Studios!5e0!3m2!1sja!2sjp!4v1705495236118!5m2!1s${language}!2sjp`}
+                    title={a11y.companyMapLabel}
                     allowFullScreen
                     loading='lazy'
                     referrerPolicy='no-referrer-when-downgrade'
@@ -60,12 +69,18 @@ async function SummarySection({ language }: { language: Language }) {
   )
 }
 
-async function HistorySection({ language }: { language: Language }) {
+async function HistorySection({
+  headingTag: HeadingTag,
+  language,
+}: {
+  headingTag: 'h1' | 'h2'
+  language: Language
+}) {
   const d = (await getDictionary(language)).Company.History
   const historyInfos = await getHistoryInfos({ language })
 
   return (
-    <Section title={d.title}>
+    <Section headingTag={HeadingTag} title={d.title}>
       <table>
         <tbody>
           {historyInfos.map((historyInfo) => {
@@ -110,10 +125,18 @@ async function HistorySection({ language }: { language: Language }) {
   )
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  headingTag: HeadingTag,
+  title,
+  children,
+}: {
+  headingTag: 'h1' | 'h2'
+  title: string
+  children: React.ReactNode
+}) {
   return (
     <section className='flex flex-col gap-10'>
-      <h1 className='text-4xl font-bold'>{title}</h1>
+      <HeadingTag className='text-4xl font-bold'>{title}</HeadingTag>
       {children}
     </section>
   )
@@ -122,7 +145,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Subsection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className='flex flex-col gap-1'>
-      <h2 className='text-2xl font-semibold'>{title}</h2>
+      <h3 className='text-2xl font-semibold'>{title}</h3>
       {children}
     </div>
   )
@@ -141,13 +164,13 @@ export default async function Page({
   return (
     <div>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex min-h-screen flex-col items-center'>
+      <main id='main-content' className='mt-14 flex min-h-screen flex-col items-center'>
         <div className='w-limited flex flex-col items-center justify-center divide-y divide-zinc-300 pt-14 pb-32 *:w-full *:not-first:pt-20 *:not-last:pb-20 md:pt-20 dark:divide-cyan-900'>
-          <SummarySection language={language} />
-          <HistorySection language={language} />
+          <SummarySection headingTag='h1' language={language} />
+          <HistorySection headingTag='h2' language={language} />
         </div>
-      </div>
-      <Footer />
+      </main>
+      <Footer language={language} />
     </div>
   )
 }

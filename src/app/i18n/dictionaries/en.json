@@ -99,15 +99,19 @@
     }
   },
   "NavigationBar": {
+    "primaryLabel": "Primary",
+    "openMenu": "Open navigation menu",
     "company": "Company",
     "products": "Products",
+    "home": "Go to home page",
     "switchLanguage": "日本語に切り替え"
   },
   "Home": {
     "Slogan": {
       "full": "Selected solutions, an ark to the future.",
       "upper": "Selected solutions,",
-      "lower": "an ark to the future."
+      "lower": "an ark to the future.",
+      "imageAlt": "An ark floating on the sea"
     },
     "Business": {
       "title": "Business",
@@ -197,7 +201,9 @@
       "onetime": "One-Time"
     },
     "Platform": {
-      "title": "System requirement"
+      "title": "System requirement",
+      "supported": "Supported",
+      "unsupported": "Not supported"
     },
     "BitRemote": {
       "subtitle": "Remote download task management app",
@@ -208,5 +214,17 @@
         "onetime": "$49.99"
       }
     }
+  }
+  ,
+  "Footer": {
+    "landmarkLabel": "Footer",
+    "twitterLabel": "Ark Studios on Twitter",
+    "githubLabel": "Ark Studios on GitHub",
+    "emailLabel": "Email Ark Studios"
+  },
+  "Accessibility": {
+    "skipToMain": "Skip to main content",
+    "externalSiteSuffix": "(external site)",
+    "companyMapLabel": "Map showing the Ark Studios office location"
   }
 }

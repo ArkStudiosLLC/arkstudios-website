@@ -35,7 +35,8 @@ function Label({ title }: { title: string }) {
   )
 }
 
-function Links() {
+async function Links({ language }: { language: Language }) {
+  const d = (await getDictionary(language)).Accessibility
   const links = [
     { title: 'AdMob', destination: 'https://support.google.com/admob/answer/6128543' },
     { title: 'Firebase', destination: 'https://firebase.google.com/support/privacy' },
@@ -46,7 +47,11 @@ function Links() {
         return (
           <div key={link.destination} className='flex'>
             <Label title='・' />
-            <a href={link.destination}>
+            <a
+              href={link.destination}
+              aria-label={`${link.title} ${d.externalSiteSuffix}`}
+              className='focus-ring rounded-sm'
+            >
               <p>{link.title}</p>
             </a>
           </div>
@@ -68,7 +73,7 @@ export default async function Page({
   return (
     <div className='flex flex-col'>
       <NavigationBar language={language} pathname={pathname} />
-      <div className='mt-14 flex min-h-screen justify-center'>
+      <main id='main-content' className='mt-14 flex min-h-screen justify-center'>
         <div className='w-limited pt-14 pb-32 md:pt-20'>
           <div className='flex flex-col gap-10'>
             <h1 className='text-4xl font-bold'>{d.title}</h1>
@@ -79,14 +84,16 @@ export default async function Page({
                 <Subsection key={key} title={policyItem.title}>
                   <Label title={policyItem.content} />
 
-                  {policyItem.type === 'informationCollection' && <Links />}
+                  {policyItem.type === 'informationCollection' && (
+                    <Links language={language} />
+                  )}
                 </Subsection>
               )
             })}
           </div>
         </div>
-      </div>
-      <Footer />
+      </main>
+      <Footer language={language} />
     </div>
   )
 }

@@ -99,15 +99,19 @@
     }
   },
   "NavigationBar": {
+    "primaryLabel": "主要ナビゲーション",
+    "openMenu": "ナビゲーションメニューを開く",
     "company": "会社情報",
     "products": "製品紹介",
+    "home": "ホームページへ移動",
     "switchLanguage": "Switch to English"
   },
   "Home": {
     "Slogan": {
       "full": "選び抜かれたソリューション、未来への方舟。",
       "upper": "選び抜かれたソリューション、",
-      "lower": "未来への方舟。"
+      "lower": "未来への方舟。",
+      "imageAlt": "海に浮かぶ方舟"
     },
     "Business": {
       "title": "事業内容",
@@ -197,7 +201,9 @@
       "onetime": "一度購入"
     },
     "Platform": {
-      "title": "動作環境"
+      "title": "動作環境",
+      "supported": "対応",
+      "unsupported": "非対応"
     },
     "BitRemote": {
       "subtitle": "ダウンロードタスク遠隔管理アプリ",
@@ -208,5 +214,17 @@
         "onetime": "8,000円"
       }
     }
+  }
+  ,
+  "Footer": {
+    "landmarkLabel": "フッター",
+    "twitterLabel": "Ark Studios の Twitter",
+    "githubLabel": "Ark Studios の GitHub",
+    "emailLabel": "Ark Studios にメールを送る"
+  },
+  "Accessibility": {
+    "skipToMain": "メインコンテンツへスキップ",
+    "externalSiteSuffix": "（外部サイト）",
+    "companyMapLabel": "Ark Studios の所在地を示す地図"
   }
 }
