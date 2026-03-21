@@ -1,8 +1,8 @@
-import { getDictionary } from '@/app/i18n/get-dictionary'
-import { getAppInfos } from '@/app/[language]/products/data'
 import { getSummaryInfos, getHistoryInfos } from '@/app/[language]/company/data'
-import { getPrivacyPolicyItems } from '@/app/[language]/privacy/bitremote/data'
 import { getEULAItems } from '@/app/[language]/eula/bitremote/data'
+import { getPrivacyPolicyItems } from '@/app/[language]/privacy/bitremote/data'
+import { getAppInfos } from '@/app/[language]/products/data'
+import { getDictionary } from '@/app/i18n/get-dictionary'
 
 export const dynamic = 'force-static'
 
