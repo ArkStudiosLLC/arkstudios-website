@@ -1,0 +1,33 @@
+# Ark Studios
+
+> Ark Studios LLC | We are engaged in software development, sales, and service provision.
+
+## About
+
+Ark Studios is a software development company based in Shibuya, Tokyo. We plan, design, develop, and sell software for smartphones, computers, XR headsets, smartwatches, TV boxes, and more.
+
+- Founded: November 27, 2023
+- Location: 2F-C, Shibuya Dogenzaka Tokyu Bldg., 1-10-8 Dogenzaka, Shibuya, Tokyo
+- Tagline: Selected solutions, an ark to the future.
+
+## Products
+
+- [BitRemote](https://bitremote.app): Remote download task management app for iPhone, iPad, and Mac
+
+## Pages
+
+- [Home](https://arkstudios.co.jp/en/)
+- [Products](https://arkstudios.co.jp/en/products)
+- [Company](https://arkstudios.co.jp/en/company)
+- [BitRemote Privacy Policy](https://arkstudios.co.jp/en/privacy/bitremote)
+- [BitRemote EULA](https://arkstudios.co.jp/en/eula/bitremote)
+
+## Full Content
+
+- [llms-full.txt](https://arkstudios.co.jp/llms-full.txt): Complete site content for LLMs
+
+## Links
+
+- [Twitter](https://twitter.com/ArkStudiosLLC)
+- [GitHub](https://github.com/ArkStudiosLLC)
+- [Email](mailto:info@arkstudios.co.jp)
