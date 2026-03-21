@@ -1,7 +1,6 @@
-import '../globals.css'
-
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { i18n, type Language } from '@/app/i18n/i18n-config'
+import HtmlLang from '@/app/ui/components/html-lang'
 
 import type { Viewport } from 'next'
 
@@ -18,6 +17,8 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: dark)', color: '#06232e' },
   ],
 }
+
+export const dynamicParams = false
 
 export function generateStaticParams() {
   return i18n.languages.map((language) => ({ language: language }))
@@ -105,7 +106,7 @@ function NoScriptHiddenStyle() {
   )
 }
 
-export default async function RootLayout({
+export default async function LanguageLayout({
   children,
   params,
 }: {
@@ -116,17 +117,16 @@ export default async function RootLayout({
   const d = await getDictionary(language)
 
   return (
-    <html lang={language}>
-      <body className='subpixel-antialiased'>
-        <NoScriptHiddenStyle />
-        <a
-          href='#main-content'
-          className='sr-only fixed top-4 left-4 z-50 rounded-lg bg-white px-4 py-2 text-sm font-medium text-zinc-900 shadow-lg focus:not-sr-only dark:bg-cyan-900 dark:text-white'
-        >
-          {d.Accessibility.skipToMain}
-        </a>
-        {children}
-      </body>
-    </html>
+    <>
+      <HtmlLang language={language} />
+      <NoScriptHiddenStyle />
+      <a
+        href='#main-content'
+        className='sr-only fixed top-4 left-4 z-50 rounded-lg bg-white px-4 py-2 text-sm font-medium text-zinc-900 shadow-lg focus:not-sr-only dark:bg-cyan-900 dark:text-white'
+      >
+        {d.Accessibility.skipToMain}
+      </a>
+      {children}
+    </>
   )
 }

@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-
 import { config } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react'
 
 // Prevent FontAwesome from injecting its CSS at runtime. Client components
 // trigger an unlayered <style> insertion whose `height: 1em` overrides
