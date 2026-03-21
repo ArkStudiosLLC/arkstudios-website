@@ -41,15 +41,33 @@ function Links({
   currentPath,
   links,
   onNavigate,
+  variant = 'desktop',
 }: {
   currentPath: string
   links: NavigationLink[]
   onNavigate?: () => void
+  variant?: 'desktop' | 'mobile'
 }) {
   return (
     <>
       {links.map((link) => {
         const isCurrentPage = link.destination === currentPath
+
+        if (variant === 'mobile') {
+          return (
+            <a
+              key={link.name}
+              href={link.destination}
+              aria-current={isCurrentPage ? 'page' : undefined}
+              className='focus-ring rounded-xl px-3 py-2.5 text-right transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:hover:bg-white/8 dark:active:bg-white/12'
+              onClick={onNavigate}
+            >
+              <p className='text-base font-light text-zinc-700 dark:text-white'>
+                {link.name}
+              </p>
+            </a>
+          )
+        }
 
         return (
           <a
@@ -217,6 +235,7 @@ export default function NavigationBarClient({
                   currentPath={currentPath}
                   links={links}
                   onNavigate={() => setIsMenuOpen(false)}
+                  variant='mobile'
                 />
                 <div className='my-1 w-full border-t border-zinc-200 dark:border-white/8' />
                 <LanguageToggle
