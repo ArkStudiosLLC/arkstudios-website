@@ -1,5 +1,6 @@
-import type { Language } from './i18n-config'
 import { i18n } from './i18n-config'
+
+import type { Language } from './i18n-config'
 
 export function localePath(language: Language, pathname: string): string {
   if (pathname === '' || pathname === '/') return `/${language}/`
