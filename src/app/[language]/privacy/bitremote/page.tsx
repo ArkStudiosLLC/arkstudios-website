@@ -1,9 +1,16 @@
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Language } from '@/app/i18n/i18n-config'
+import {
+  absoluteUrl,
+  buildLanguageAlternates,
+  localePath,
+} from '@/app/i18n/urls'
 import Footer from '@/app/ui/components/footer'
 import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { getPrivacyPolicyItems } from './data'
+
+import type { Metadata } from 'next'
 
 const pathname = '/privacy/bitremote'
 
@@ -11,10 +18,14 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ language: Language }>
-}) {
+}): Promise<Metadata> {
+  const language = (await params).language
   return {
-    title: (await getDictionary((await params).language)).Metadata.PrivacyPolicy.BitRemote
-      .title,
+    title: (await getDictionary(language)).Metadata.PrivacyPolicy.BitRemote.title,
+    alternates: {
+      canonical: absoluteUrl(localePath(language, pathname)),
+      languages: buildLanguageAlternates(pathname),
+    },
   }
 }
 
