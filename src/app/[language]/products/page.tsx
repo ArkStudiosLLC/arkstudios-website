@@ -16,10 +16,17 @@ import React from 'react'
 
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Language } from '@/app/i18n/i18n-config'
+import {
+  absoluteUrl,
+  buildLanguageAlternates,
+  localePath,
+} from '@/app/i18n/urls'
 import Footer from '@/app/ui/components/footer'
 import NavigationBar from '@/app/ui/components/navigation-bar'
 
 import { AppInfo, getAppInfos, PriceInfo, PlatformInfo } from './data'
+
+import type { Metadata } from 'next'
 
 const pathname = '/products'
 
@@ -27,8 +34,15 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ language: Language }>
-}) {
-  return { title: (await getDictionary((await params).language)).Metadata.Products.title }
+}): Promise<Metadata> {
+  const language = (await params).language
+  return {
+    title: (await getDictionary(language)).Metadata.Products.title,
+    alternates: {
+      canonical: absoluteUrl(localePath(language, pathname)),
+      languages: buildLanguageAlternates(pathname),
+    },
+  }
 }
 
 async function SummarySection({
