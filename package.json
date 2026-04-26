@@ -1,10 +1,10 @@
 {
   "name": "arkstudios-website",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
+    "build": "next build --webpack && node scripts/postprocess-export.mjs",
     "start": "next start",
     "lint": "eslint src/",
     "format": "prettier --write ."

@@ -5,12 +5,12 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 
+import { i18n, type Language } from '@/app/i18n/i18n-config'
+
 // Prevent FontAwesome from injecting its CSS at runtime. Client components
 // trigger an unlayered <style> insertion whose `height: 1em` overrides
 // Tailwind's layered size utilities (h-7, *:h-6, etc.), shrinking every icon.
 config.autoAddCss = false
-
-import { type Language } from '@/app/i18n/i18n-config'
 
 const navSurfaceClass =
   'border-b border-zinc-200 bg-white/75 shadow-sm backdrop-blur-xl dark:border-white/15 dark:bg-cyan-950/75 dark:shadow-[0_18px_48px_-30px_rgba(8,47,73,0.9)]'
@@ -23,19 +23,20 @@ interface NavigationLink {
   destination: string
 }
 
-function Logo({
-  language,
-  homeLabel,
-}: {
-  language: Language
-  homeLabel: string
-}) {
+function homePath(language: Language) {
+  return language === i18n.defaultLanguage ? '/' : `/${language}`
+}
+
+function localizedPath(language: Language, pathname: string) {
+  if (pathname === '') return homePath(language)
+  return `/${language}${pathname}`
+}
+
+function Logo({ language, homeLabel }: { language: Language; homeLabel: string }) {
   return (
-    <a href={`/${language}`} aria-label={homeLabel} className='focus-ring rounded-md'>
+    <a href={homePath(language)} aria-label={homeLabel} className='focus-ring rounded-md'>
       <p className='flex items-baseline gap-1 text-xl font-semibold text-zinc-900 dark:text-white'>
-        <span className='rounded-md bg-cyan-800 px-1 py-0.5 text-white'>
-          Ark
-        </span>
+        <span className='rounded-md bg-cyan-800 px-1 py-0.5 text-white'>Ark</span>
         Studios
       </p>
     </a>
@@ -130,29 +131,24 @@ function LanguageToggle({
   label?: string
 }) {
   const targetLanguage = language === 'en' ? 'ja' : 'en'
+  const targetPath = localizedPath(targetLanguage, pathname)
 
   if (variant === 'row') {
     return (
       <a
-        href={`/${targetLanguage}${pathname}`}
+        href={targetPath}
         aria-label={ariaLabel}
         className='focus-ring flex items-center justify-end gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-zinc-100 active:bg-zinc-200 dark:hover:bg-white/8 dark:active:bg-white/12'
         onClick={onNavigate}
       >
         <LanguageIcon />
-        <p className='text-base font-light text-zinc-700 dark:text-white'>
-          {label}
-        </p>
+        <p className='text-base font-light text-zinc-700 dark:text-white'>{label}</p>
       </a>
     )
   }
 
   return (
-    <a
-      href={`/${targetLanguage}${pathname}`}
-      aria-label={ariaLabel}
-      className='focus-ring rounded-xl'
-    >
+    <a href={targetPath} aria-label={ariaLabel} className='focus-ring rounded-xl'>
       <div
         className={`${navSurfaceSoftClass} flex h-10 w-10 items-center justify-center rounded-xl text-zinc-700 transition-colors hover:bg-zinc-200/90 active:bg-zinc-300/90 dark:text-white dark:hover:bg-cyan-800/90 dark:active:bg-cyan-950/90`}
       >
@@ -180,7 +176,7 @@ export default function NavigationBarClient({
   switchLanguageLabel: string
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const currentPath = `/${language}${pathname}`
+  const currentPath = localizedPath(language, pathname)
   const mobileMenuId = 'mobile-navigation-menu'
 
   return (

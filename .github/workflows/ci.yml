@@ -31,4 +31,4 @@ jobs:
       - name: Lint
         run: npx --no-install eslint src/
       - name: Build
-        run: npx --no-install next build
+        run: npm run build

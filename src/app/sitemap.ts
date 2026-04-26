@@ -9,15 +9,19 @@ const routes = ['', '/products', '/company', '/privacy/bitremote', '/eula/bitrem
 const languages = ['ja', 'en'] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.flatMap((route) =>
+  const localizedRoutes = routes.flatMap((route) =>
     languages.map((lang) => ({
-      url: `${BASE_URL}/${lang}${route}/`,
+      url:
+        route === '' && lang === 'ja' ? `${BASE_URL}/` : `${BASE_URL}/${lang}${route}/`,
       alternates: {
         languages: {
-          ja: `${BASE_URL}/ja${route}/`,
+          ja: route === '' ? `${BASE_URL}/` : `${BASE_URL}/ja${route}/`,
           en: `${BASE_URL}/en${route}/`,
+          'x-default': route === '' ? `${BASE_URL}/` : `${BASE_URL}/ja${route}/`,
         },
       },
     })),
   )
+
+  return localizedRoutes
 }

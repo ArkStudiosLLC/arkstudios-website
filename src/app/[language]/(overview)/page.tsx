@@ -1,12 +1,6 @@
-import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Language } from '@/app/i18n/i18n-config'
-import {
-  absoluteUrl,
-  buildLanguageAlternates,
-  localePath,
-} from '@/app/i18n/urls'
-import Footer from '@/app/ui/components/footer'
-import NavigationBar from '@/app/ui/components/navigation-bar'
+import { absoluteUrl, buildLanguageAlternates, localePath } from '@/app/i18n/urls'
+import HomePage from '@/app/ui/components/home-page'
 
 import type { Metadata } from 'next'
 
@@ -26,99 +20,11 @@ export async function generateMetadata({
   }
 }
 
-async function CanvasSection({ language }: { language: Language }) {
-  const d = (await getDictionary(language)).Home.Slogan
-
-  return (
-    <div className='flex w-full flex-col items-center justify-center gap-14 px-6 md:px-10 lg:px-10 xl:px-16 2xl:max-w-512 2xl:px-24'>
-      <picture>
-        <source srcSet='/images/Ark.webp' type='image/webp'></source>
-        <img
-          src='/images/Ark.jpg'
-          alt={d.imageAlt}
-          loading='lazy'
-          decoding='async'
-          className='h-96 rounded-3xl object-cover md:h-128 lg:h-168 2xl:h-auto'
-        />
-      </picture>
-      <h1 className='w-limited flex flex-col items-center *:text-2xl *:font-black *:whitespace-nowrap *:text-cyan-900 *:sm:text-4xl *:xl:text-5xl *:2xl:text-6xl *:dark:text-cyan-200'>
-        <span className='hidden lg:block'>{d.full}</span>
-        <span className='block text-left lg:hidden'>
-          {d.upper}
-          <br />
-          {d.lower}
-        </span>
-      </h1>
-    </div>
-  )
-}
-
-function SubSection({ title, content }: { title: string; content: string }) {
-  return (
-    <div className='flex flex-col gap-1'>
-      <h4 className='text-sm font-semibold sm:text-base 2xl:text-xl'>{title}</h4>
-      <p className='text-xs font-light sm:text-sm 2xl:text-base dark:text-zinc-300'>
-        {content}
-      </p>
-    </div>
-  )
-}
-
-async function BusinessSection({ language }: { language: Language }) {
-  const d = (await getDictionary(language)).Home.Business
-
-  return (
-    <div className='w-limited flex flex-col items-center justify-center gap-10'>
-      <h2 className='text-2xl font-bold sm:text-4xl 2xl:text-5xl'>{d.title}</h2>
-      <div className='flex flex-col divide-y-2 divide-dashed divide-zinc-300 rounded-xl bg-zinc-100 p-6 *:not-first:pt-6 *:not-last:pb-6 sm:p-10 2xl:p-12 dark:divide-cyan-800 dark:bg-cyan-950'>
-        <div className='flex flex-col items-center gap-2'>
-          <h3 className='text-lg font-semibold sm:text-2xl 2xl:text-3xl'>
-            {d.SoftwareDevelopment.title}
-          </h3>
-          <p className='text-xs sm:text-sm 2xl:text-base dark:text-zinc-300'>
-            {d.SoftwareDevelopment.description}
-          </p>
-        </div>
-        <div className='flex flex-col gap-4 sm:gap-6 2xl:gap-8'>
-          <SubSection
-            title={d.SoftwareDevelopment.Price.title}
-            content={d.SoftwareDevelopment.Price.content}
-          />
-          <SubSection
-            title={d.SoftwareDevelopment.Payment.title}
-            content={d.SoftwareDevelopment.Payment.content}
-          />
-        </div>
-        <div className='flex w-full justify-center'>
-          <a
-            href={`/${language}/products`}
-            className='focus-ring rounded-xl bg-zinc-700 px-8 py-2 text-sm font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-base 2xl:text-lg dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'
-          >
-            <span>{d.products}</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default async function Page({
   params,
 }: {
   params: Promise<{ language: Language }>
 }) {
   const { language } = await params
-  return (
-    <div className='flex flex-col select-none'>
-      <NavigationBar language={language} pathname={pathname} />
-      <main
-        id='main-content'
-        className='mt-14 flex min-h-screen flex-col items-center divide-y divide-zinc-300 pt-8 pb-32 *:not-first:pt-32 *:not-last:pb-32 dark:divide-cyan-800'
-      >
-        <CanvasSection language={language} />
-        <BusinessSection language={language} />
-      </main>
-      <Footer language={language} />
-    </div>
-  )
+  return <HomePage language={language} />
 }

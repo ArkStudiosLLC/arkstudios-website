@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: '404 - Ark Studios',
@@ -23,13 +24,8 @@ export default function RootNotFound() {
           404
         </p>
         <div className='flex flex-col items-center gap-2'>
-          <h1 className='text-2xl font-bold sm:text-3xl'>
-            ページが見つかりません
-          </h1>
-          <p
-            lang='en'
-            className='text-lg text-zinc-600 sm:text-xl dark:text-zinc-400'
-          >
+          <h1 className='text-2xl font-bold sm:text-3xl'>ページが見つかりません</h1>
+          <p lang='en' className='text-lg text-zinc-600 sm:text-xl dark:text-zinc-400'>
             Page Not Found
           </p>
         </div>
@@ -41,19 +37,19 @@ export default function RootNotFound() {
           </span>
         </p>
         <div className='flex flex-col gap-3 sm:flex-row sm:gap-4'>
-          <a
-            href='/ja/'
+          <Link
+            href='/'
             className='focus-ring rounded-xl bg-zinc-700 px-8 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-base dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'
           >
             ホームへ戻る
-          </a>
-          <a
+          </Link>
+          <Link
             href='/en/'
             lang='en'
             className='focus-ring rounded-xl bg-zinc-700 px-8 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-zinc-600 active:bg-zinc-500 sm:text-base dark:bg-cyan-800 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:active:bg-cyan-600'
           >
             Go to Home
-          </a>
+          </Link>
         </div>
       </main>
     </>
